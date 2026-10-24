@@ -156,6 +156,19 @@
   @media (max-width:560px){.shifts{grid-template-columns:1fr}.vs>div{padding:24px}}
   @media (prefers-reduced-motion:reduce){.loop path{animation:none}}
 
+  /* marca */
+  .bcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .bcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column}
+  .bcard h4{font:700 19px Inter;letter-spacing:-.01em}
+  .bcard>p{font-size:15px;margin-top:8px}
+  .prat{margin-top:16px;padding:14px;border-radius:14px;background:var(--paper2);font-size:14px;color:var(--txt)}
+  .prat b{display:block;font:600 11px Inter;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-bottom:4px}
+  .cite{margin-top:auto;padding-top:14px;font-size:12px;color:var(--mut)}
+  .bnote{margin-top:16px;background:var(--cream);border-radius:24px;padding:28px 32px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .bnote p{color:var(--ink);font-size:17px;max-width:760px}
+  @media (max-width:1000px){.bcards{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.bcards{grid-template-columns:1fr}.bnote{padding:22px}}
+
   /* fases da marca pessoal */
   .phases5{background:#fff;border:1px solid var(--line);border-radius:28px;padding:14px;display:grid;gap:14px}
   .phtabs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
@@ -326,11 +339,11 @@
   <a class="brand" href="#topo"><span class="logo"><img src="logo-rize.png" alt="Rize" width="360" height="220"></span>Studio</a>
   <nav class="menu">
     <a href="#jornada"><span data-lang="pt">No que acreditamos</span><span data-lang="en">Our belief</span></a>
+    <a href="#marca"><span data-lang="pt">Marca</span><span data-lang="en">Brand</span></a>
     <a href="#fases"><span data-lang="pt">Marca pessoal</span><span data-lang="en">Personal brand</span></a>
     <a href="#sistema"><span data-lang="pt">O sistema</span><span data-lang="en">The system</span></a>
     <a href="#modulos"><span data-lang="pt">Módulos</span><span data-lang="en">Modules</span></a>
     <a href="#processo"><span data-lang="pt">Processo</span><span data-lang="en">Process</span></a>
-    <a href="#perguntas"><span data-lang="pt">Perguntas</span><span data-lang="en">FAQ</span></a>
   </nav>
   <div class="actions">
     <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="pt-BR" class="on">PT</button><button type="button" data-set="en">EN</button></div>
@@ -411,8 +424,26 @@
           <ul><li><span data-lang="pt">Em loop: a pessoa explora, avalia, some e volta, quantas vezes quiser.</span><span data-lang="en">A loop: people explore, evaluate, disappear and come back, as often as they like.</span></li><li><span data-lang="pt">A pessoa pesquisa sozinha e fala com quem vende só no fim.</span><span data-lang="en">People research on their own and talk to the seller only at the end.</span></li><li><span data-lang="pt">A decisão acontece no escuro: indicações, DMs, grupos, comunidades e IA.</span><span data-lang="en">The decision happens in the dark: referrals, DMs, groups, communities and AI.</span></li><li><span data-lang="pt">Cada conteúdo precisa valer sozinho, no próprio feed, sem depender do clique.</span><span data-lang="en">Every piece must stand alone, in the feed itself, without relying on the click.</span></li><li><span data-lang="pt">A confiança vem de pessoas: a fundadora, clientes e quem indica.</span><span data-lang="en">Trust comes from people: the founder, clients and whoever refers you.</span></li></ul></div>
       </div>
       <div class="shifts"><div class="shift reveal"><h4><span data-lang="pt">Presença nos dois modos</span><span data-lang="en">Present in both modes</span></h4><p><span data-lang="pt">Conteúdo para quem está explorando e para quem está comparando, ao mesmo tempo.</span><span data-lang="en">Content for people exploring and for people comparing, at the same time.</span></p></div><div class="shift reveal"><h4><span data-lang="pt">Pessoas antes de logos</span><span data-lang="en">People before logos</span></h4><p><span data-lang="pt">A marca pessoal é a fonte de confiança; a marca da empresa recebe e entrega.</span><span data-lang="en">The personal brand is the source of trust; the company brand receives and delivers.</span></p></div><div class="shift reveal"><h4><span data-lang="pt">Valor dentro do feed</span><span data-lang="en">Value inside the feed</span></h4><p><span data-lang="pt">Posts que ensinam e convencem mesmo para quem nunca clica no link da bio.</span><span data-lang="en">Posts that teach and convince even people who never click the bio link.</span></p></div><div class="shift reveal"><h4><span data-lang="pt">Sinais além do clique</span><span data-lang="en">Signals beyond the click</span></h4><p><span data-lang="pt">Comentários, DMs, "como você me conheceu?" e menções contam tanto quanto métricas.</span><span data-lang="en">Comments, DMs, "how did you hear about me?" and mentions count as much as metrics.</span></p></div></div>
-      <p class="src" data-lang="pt">Base: pesquisa "Decoding Decisions: the messy middle" (Google e The Behavioural Architects), estudos da Gartner sobre a jornada de compra B2B, o conceito de dark social e o modelo Loop Marketing apresentado pela HubSpot em 2025.</p>
-      <p class="src" data-lang="en">Based on: "Decoding Decisions: the messy middle" (Google and The Behavioural Architects), Gartner research on the B2B buying journey, the dark social concept and the Loop Marketing model HubSpot presented in 2025.</p>
+      <p class="src" data-lang="pt">Base da jornada: pesquisa "Decoding Decisions: the messy middle" (Google e The Behavioural Architects), estudos da Gartner sobre a jornada de compra B2B, o conceito de dark social e o modelo Loop Marketing apresentado pela HubSpot em 2025.</p>
+      <p class="src" data-lang="en">Journey sources: "Decoding Decisions: the messy middle" (Google and The Behavioural Architects), Gartner research on the B2B buying journey, the dark social concept and the Loop Marketing model HubSpot presented in 2025.</p>
+    </div>
+  </section>
+
+  <section id="marca" style="padding-top:40px">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker"><span data-lang="pt">E a marca?</span><span data-lang="en">What about brand?</span></span>
+        <h2 style="margin-top:16px" data-lang="pt">Marca não é logo. <span class="serif">É ser lembrada antes da necessidade.</span></h2>
+        <h2 style="margin-top:16px" data-lang="en">A brand isn't a logo. <span class="serif">It's being remembered before the need.</span></h2>
+        <p data-lang="pt">Se a compra virou um loop que ninguém enxerga, a marca é o que trabalha quando você não está na sala: é lembrada quando a necessidade aparece, citada pela IA e indicada no grupo.</p>
+        <p data-lang="en">If buying became a loop nobody can see, the brand is what works when you're not in the room: remembered when the need shows up, cited by AI and referred in the group chat.</p>
+      </div>
+      <div class="bcards"><div class="bcard reveal"><h4><span data-lang="pt">A maioria ainda não está comprando</span><span data-lang="en">Most people aren't buying yet</span></h4><p><span data-lang="pt">Em qualquer momento, só uma pequena parte do seu público está pronta para comprar. Quando a necessidade aparece, a escolha vai para a marca de que a pessoa lembra.</span><span data-lang="en">At any moment, only a small share of your audience is ready to buy. When the need shows up, the choice goes to the brand they remember.</span></p><div class="prat"><b><span data-lang="pt">Na prática</span><span data-lang="en">In practice</span></b><span data-lang="pt">Conteúdo contínuo para quem ainda não está comprando, e não só para quem está.</span><span data-lang="en">Continuous content for people not buying yet, not only for those who are.</span></div><small class="cite"><span data-lang="pt">LinkedIn B2B Institute e Ehrenberg-Bass, regra 95:5</span><span data-lang="en">LinkedIn B2B Institute and Ehrenberg-Bass, 95:5 rule</span></small></div><div class="bcard reveal"><h4><span data-lang="pt">A IA recomenda quem é citado</span><span data-lang="en">AI recommends who gets mentioned</span></h4><p><span data-lang="pt">Assistentes de IA indicam poucas marcas por resposta, e a força da marca fora do próprio site pesa nessa escolha. Marca forte é ser mencionada por outras pessoas.</span><span data-lang="en">AI assistants suggest only a few brands per answer, and brand strength beyond your own site weighs on that choice. A strong brand is one other people mention.</span></p><div class="prat"><b><span data-lang="pt">Na prática</span><span data-lang="en">In practice</span></b><span data-lang="pt">Casos, parcerias e presença em conversas fora do seu perfil.</span><span data-lang="en">Case studies, partnerships and presence in conversations beyond your profile.</span></div><small class="cite"><span data-lang="pt">Seer Interactive, 2025</span><span data-lang="en">Seer Interactive, 2025</span></small></div><div class="bcard reveal"><h4><span data-lang="pt">Confiança pesa como preço</span><span data-lang="en">Trust weighs like price</span></h4><p><span data-lang="pt">Confiança virou critério de compra no mesmo nível de preço e qualidade. E as pessoas querem marcas que melhorem a vida delas, não só discursos sobre o mundo.</span><span data-lang="en">Trust became a purchase criterion on par with price and quality. And people want brands that improve their own lives, not just speeches about the world.</span></p><div class="prat"><b><span data-lang="pt">Na prática</span><span data-lang="en">In practice</span></b><span data-lang="pt">Conteúdo útil para a vida real do cliente, com a fundadora à frente.</span><span data-lang="en">Content useful for the client's real life, with the founder up front.</span></div><small class="cite"><span data-lang="pt">Edelman Trust Barometer 2025, "From We to Me"</span><span data-lang="en">Edelman Trust Barometer 2025, "From We to Me"</span></small></div><div class="bcard reveal"><h4><span data-lang="pt">Consistência vence novidade</span><span data-lang="en">Consistency beats novelty</span></h4><p><span data-lang="pt">Cores, frases, rosto e formatos repetidos até serem só seus. É assim que a marca é reconhecida em um segundo de rolagem.</span><span data-lang="en">Colors, lines, face and formats repeated until they are only yours. That's how a brand is recognized in one second of scrolling.</span></p><div class="prat"><b><span data-lang="pt">Na prática</span><span data-lang="en">In practice</span></b><span data-lang="pt">O Cérebro da marca guarda voz, frases e regras, e os agentes seguem.</span><span data-lang="en">The Brand Brain keeps voice, lines and rules, and the agents follow them.</span></div><small class="cite"><span data-lang="pt">Ehrenberg-Bass, ativos distintivos de marca</span><span data-lang="en">Ehrenberg-Bass, distinctive brand assets</span></small></div></div>
+      <div class="bnote reveal">
+        <p data-lang="pt"><b>Por isso estruturamos a marca antes de fazer marketing.</b> Mensagem, ativos que só você tem e a presença da fundadora vêm antes do calendário. A marca pessoal gera confiança; a marca da empresa recebe e entrega.</p>
+        <p data-lang="en"><b>That's why we structure the brand before doing marketing.</b> Message, assets only you own and the founder's presence come before the calendar. The personal brand builds trust; the company brand receives and delivers.</p>
+        <a class="btn dark sm" href="#fases"><span data-lang="pt">Ver as fases da marca pessoal</span><span data-lang="en">See the personal brand stages</span> →</a>
+      </div>
     </div>
   </section>
 
