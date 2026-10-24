@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rize Studio — marca pessoal que vira negócio</title>
-<meta name="description" content="Estratégia de marca pessoal, conteúdo, design, vídeo e páginas num só sistema, pensado para a jornada de compra de hoje, que não é um funil. A Rize cuida da estratégia; agentes de IA fazem o repetitivo no Rize Studio.">
+<meta name="description" content="Estratégia de marca pessoal, conteúdo, design, vídeo e páginas num só sistema, ligados à estratégia da sua marca. A Rize cuida da estratégia; agentes de IA fazem o repetitivo no Rize Studio.">
 <meta property="og:title" content="Rize Studio">
 <meta property="og:description" content="Conteúdo de marca feito por software, guiado por pessoas.">
 <meta property="og:image" content="logo-rize.png">
@@ -125,36 +125,6 @@
   .stats div b{display:block;font:700 clamp(44px,5vw,68px)/1 Inter;letter-spacing:-.04em}
   .stats div span{display:block;margin-top:10px;color:var(--mut);font-size:15px}
   @media (max-width:760px){.stats{grid-template-columns:1fr 1fr;gap:32px}}
-
-  /* jornada atual */
-  .vs{display:grid;grid-template-columns:1fr 1.25fr;gap:16px}
-  .vs>div{border-radius:28px;padding:32px}
-  .vs ul{list-style:none;margin-top:18px;display:grid;gap:12px}
-  .vs li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:16px}
-  .old{background:var(--paper2);color:var(--mut)}
-  .old li::before{content:"✕";font-weight:700;color:#a3523b}
-  .old li span{text-decoration:line-through;text-decoration-color:rgba(163,82,59,.45)}
-  .new{background:var(--gray);color:var(--cream)}
-  .new li::before{content:"✓";font-weight:700}
-  .tagx{display:inline-block;font:600 12px Inter;text-transform:uppercase;letter-spacing:.08em;border-radius:999px;padding:6px 12px;background:#fff;color:var(--ink)}
-  .new .tagx{background:var(--cream)}
-  .fun{width:110px;margin-top:18px;display:block}
-  .fun path{fill:none;stroke:var(--mut);stroke-width:2.5;stroke-linejoin:round}
-  .fun .x{stroke:#a3523b;stroke-width:3;stroke-linecap:round}
-  .loopwrap{position:relative;margin-top:14px;max-width:440px}
-  .loop{width:100%;display:block}
-  .loop path{fill:none;stroke:var(--cream);stroke-width:3;stroke-dasharray:10 8;animation:flow 6s linear infinite}
-  @keyframes flow{to{stroke-dashoffset:-180}}
-  .lx{position:absolute;font:600 13px Inter;color:var(--cream)}
-  .lx.l1{left:16%;top:43%}.lx.l2{right:16%;top:43%}.lx.l3{left:0;top:-4px;font-weight:500;opacity:.8}.lx.l4{right:0;bottom:-6px;font-weight:500;opacity:.8}
-  .shifts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
-  .shift{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
-  .shift h4{font:700 17px Inter;letter-spacing:-.01em}
-  .shift p{font-size:15px;margin-top:6px}
-  .src{font-size:12px;color:var(--mut);margin-top:16px;text-align:center}
-  @media (max-width:900px){.vs{grid-template-columns:1fr}.shifts{grid-template-columns:1fr 1fr}}
-  @media (max-width:560px){.shifts{grid-template-columns:1fr}.vs>div{padding:24px}}
-  @media (prefers-reduced-motion:reduce){.loop path{animation:none}}
 
   /* marca */
   .bcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -340,7 +310,6 @@
 <div class="nav"><div class="bar"><div class="in">
   <a class="brand" href="#topo"><span class="logo"><img src="logo-rize.png" alt="Rize" width="360" height="220"></span>Studio</a>
   <nav class="menu">
-    <a href="#jornada"><span data-lang="pt">No que acreditamos</span><span data-lang="en">Our belief</span></a>
     <a href="#marca"><span data-lang="pt">Marca</span><span data-lang="en">Brand</span></a>
     <a href="#fases"><span data-lang="pt">Marca pessoal</span><span data-lang="en">Personal brand</span></a>
     <a href="#sistema"><span data-lang="pt">O sistema</span><span data-lang="en">The system</span></a>
@@ -406,35 +375,14 @@
 </div>
 
 <main>
-  <section id="jornada" style="padding-top:110px">
-    <div class="wrap">
-      <div class="head">
-        <span class="kicker"><span data-lang="pt">No que acreditamos</span><span data-lang="en">What we believe</span></span>
-        <h2 style="margin-top:16px" data-lang="pt">O funil acabou. <span class="serif">A compra virou um loop.</span></h2>
-        <h2 style="margin-top:16px" data-lang="en">The funnel is over. <span class="serif">Buying became a loop.</span></h2>
-        <p data-lang="pt">Ninguém mais desce em linha reta do "conheci" ao "comprei". A pessoa vê um reels, pergunta para a IA, lê comentários, pede indicação no grupo, some por semanas e volta decidida. A maior parte dessa decisão acontece onde nenhum relatório enxerga.</p>
-        <p data-lang="en">Nobody moves in a straight line from "found you" to "bought". People see a reel, ask an AI, read comments, ask their group for referrals, disappear for weeks and come back decided. Most of that decision happens where no report can see.</p>
-      </div>
-      <div class="vs">
-        <div class="old reveal"><span class="tagx"><span data-lang="pt">Funil tradicional</span><span data-lang="en">Traditional funnel</span></span>
-          <svg class="fun" viewBox="0 0 120 90" aria-hidden="true"><path d="M8 8 H112 L72 52 V82 H48 V52 Z"/><path class="x" d="M14 14 L106 80 M106 14 L14 80"/></svg>
-          <ul><li><span data-lang="pt">Linear: topo, meio e fundo, nessa ordem.</span><span data-lang="en">Linear: top, middle and bottom, in that order.</span></li><li><span data-lang="pt">A marca empurra a pessoa de etapa em etapa.</span><span data-lang="en">The brand pushes people from stage to stage.</span></li><li><span data-lang="pt">O que importa é o que o clique mostra.</span><span data-lang="en">What counts is what the click shows.</span></li><li><span data-lang="pt">Conteúdo de topo atrai, conteúdo de fundo vende.</span><span data-lang="en">Top content attracts, bottom content sells.</span></li><li><span data-lang="pt">A confiança vem da marca da empresa.</span><span data-lang="en">Trust comes from the company brand.</span></li></ul></div>
-        <div class="new reveal"><span class="tagx"><span data-lang="pt">Como se compra hoje</span><span data-lang="en">How people buy today</span></span>
-          <div class="loopwrap"><svg class="loop" viewBox="0 0 420 190" aria-hidden="true"><path d="M210 95 C 150 15, 40 15, 40 95 C 40 175, 150 175, 210 95 C 270 15, 380 15, 380 95 C 380 175, 270 175, 210 95 Z"/></svg><span class="lx l1"><span data-lang="pt">explorar</span><span data-lang="en">explore</span></span><span class="lx l2"><span data-lang="pt">avaliar</span><span data-lang="en">evaluate</span></span><span class="lx l3"><span data-lang="pt">gatilho →</span><span data-lang="en">trigger →</span></span><span class="lx l4"><span data-lang="pt">→ compra → indicação</span><span data-lang="en">→ purchase → referral</span></span></div>
-          <ul><li><span data-lang="pt">Em loop: a pessoa explora, avalia, some e volta, quantas vezes quiser.</span><span data-lang="en">A loop: people explore, evaluate, disappear and come back, as often as they like.</span></li><li><span data-lang="pt">A pessoa pesquisa sozinha e fala com quem vende só no fim.</span><span data-lang="en">People research on their own and talk to the seller only at the end.</span></li><li><span data-lang="pt">A decisão acontece no escuro: indicações, DMs, grupos, comunidades e IA.</span><span data-lang="en">The decision happens in the dark: referrals, DMs, groups, communities and AI.</span></li><li><span data-lang="pt">Cada conteúdo precisa valer sozinho, no próprio feed, sem depender do clique.</span><span data-lang="en">Every piece must stand alone, in the feed itself, without relying on the click.</span></li><li><span data-lang="pt">A confiança vem de pessoas: a fundadora, clientes e quem indica.</span><span data-lang="en">Trust comes from people: the founder, clients and whoever refers you.</span></li></ul></div>
-      </div>
-      <div class="shifts"><div class="shift reveal"><h4><span data-lang="pt">Presença nos dois modos</span><span data-lang="en">Present in both modes</span></h4><p><span data-lang="pt">Conteúdo para quem está explorando e para quem está comparando, ao mesmo tempo.</span><span data-lang="en">Content for people exploring and for people comparing, at the same time.</span></p></div><div class="shift reveal"><h4><span data-lang="pt">Pessoas antes de logos</span><span data-lang="en">People before logos</span></h4><p><span data-lang="pt">A marca pessoal é a fonte de confiança; a marca da empresa recebe e entrega.</span><span data-lang="en">The personal brand is the source of trust; the company brand receives and delivers.</span></p></div><div class="shift reveal"><h4><span data-lang="pt">Valor dentro do feed</span><span data-lang="en">Value inside the feed</span></h4><p><span data-lang="pt">Posts que ensinam e convencem mesmo para quem nunca clica no link da bio.</span><span data-lang="en">Posts that teach and convince even people who never click the bio link.</span></p></div><div class="shift reveal"><h4><span data-lang="pt">Sinais além do clique</span><span data-lang="en">Signals beyond the click</span></h4><p><span data-lang="pt">Comentários, DMs, "como você me conheceu?" e menções contam tanto quanto métricas.</span><span data-lang="en">Comments, DMs, "how did you hear about me?" and mentions count as much as metrics.</span></p></div></div>
-    </div>
-  </section>
-
-  <section id="marca" style="padding-top:40px">
+  <section id="marca" style="padding-top:110px">
     <div class="wrap">
       <div class="head">
         <span class="kicker"><span data-lang="pt">E a marca?</span><span data-lang="en">What about brand?</span></span>
         <h2 style="margin-top:16px" data-lang="pt">Marca não é logo. <span class="serif">É ser lembrada antes da necessidade.</span></h2>
         <h2 style="margin-top:16px" data-lang="en">A brand isn't a logo. <span class="serif">It's being remembered before the need.</span></h2>
-        <p data-lang="pt">Se a compra virou um loop que ninguém enxerga, a marca é o que trabalha quando você não está na sala: é lembrada quando a necessidade aparece, citada pela IA e indicada no grupo.</p>
-        <p data-lang="en">If buying became a loop nobody can see, the brand is what works when you're not in the room: remembered when the need shows up, cited by AI and referred in the group chat.</p>
+        <p data-lang="pt">A marca é o que trabalha quando você não está na sala: é lembrada quando a necessidade aparece, citada pela IA e indicada no grupo.</p>
+        <p data-lang="en">The brand is what works when you're not in the room: remembered when the need shows up, cited by AI and referred in the group chat.</p>
       </div>
       <div class="bcards"><div class="bcard reveal"><h4><span data-lang="pt">A maioria ainda não está comprando</span><span data-lang="en">Most people aren't buying yet</span></h4><p><span data-lang="pt">Em qualquer momento, só uma pequena parte do seu público está pronta para comprar. Quando a necessidade aparece, a escolha vai para a marca de que a pessoa lembra.</span><span data-lang="en">At any moment, only a small share of your audience is ready to buy. When the need shows up, the choice goes to the brand they remember.</span></p><div class="prat"><b><span data-lang="pt">Na prática</span><span data-lang="en">In practice</span></b><span data-lang="pt">Conteúdo contínuo para quem ainda não está comprando, e não só para quem está.</span><span data-lang="en">Continuous content for people not buying yet, not only for those who are.</span></div><small class="cite"><span data-lang="pt">LinkedIn B2B Institute e Ehrenberg-Bass, regra 95:5</span><span data-lang="en">LinkedIn B2B Institute and Ehrenberg-Bass, 95:5 rule</span></small></div><div class="bcard reveal"><h4><span data-lang="pt">A IA recomenda quem é citado</span><span data-lang="en">AI recommends who gets mentioned</span></h4><p><span data-lang="pt">Assistentes de IA indicam poucas marcas por resposta, e a força da marca fora do próprio site pesa nessa escolha. Marca forte é ser mencionada por outras pessoas.</span><span data-lang="en">AI assistants suggest only a few brands per answer, and brand strength beyond your own site weighs on that choice. A strong brand is one other people mention.</span></p><div class="prat"><b><span data-lang="pt">Na prática</span><span data-lang="en">In practice</span></b><span data-lang="pt">Casos, parcerias e presença em conversas fora do seu perfil.</span><span data-lang="en">Case studies, partnerships and presence in conversations beyond your profile.</span></div><small class="cite"><span data-lang="pt">Seer Interactive, 2025</span><span data-lang="en">Seer Interactive, 2025</span></small></div><div class="bcard reveal"><h4><span data-lang="pt">Confiança pesa como preço</span><span data-lang="en">Trust weighs like price</span></h4><p><span data-lang="pt">Confiança virou critério de compra no mesmo nível de preço e qualidade. E as pessoas querem marcas que melhorem a vida delas, não só discursos sobre o mundo.</span><span data-lang="en">Trust became a purchase criterion on par with price and quality. And people want brands that improve their own lives, not just speeches about the world.</span></p><div class="prat"><b><span data-lang="pt">Na prática</span><span data-lang="en">In practice</span></b><span data-lang="pt">Conteúdo útil para a vida real do cliente, com a fundadora à frente.</span><span data-lang="en">Content useful for the client's real life, with the founder up front.</span></div><small class="cite"><span data-lang="pt">Edelman Trust Barometer 2025, "From We to Me"</span><span data-lang="en">Edelman Trust Barometer 2025, "From We to Me"</span></small></div><div class="bcard reveal"><h4><span data-lang="pt">Consistência vence novidade</span><span data-lang="en">Consistency beats novelty</span></h4><p><span data-lang="pt">Cores, frases, rosto e formatos repetidos até serem só seus. É assim que a marca é reconhecida em um segundo de rolagem.</span><span data-lang="en">Colors, lines, face and formats repeated until they are only yours. That's how a brand is recognized in one second of scrolling.</span></p><div class="prat"><b><span data-lang="pt">Na prática</span><span data-lang="en">In practice</span></b><span data-lang="pt">O Cérebro da marca guarda voz, frases e regras, e os agentes seguem.</span><span data-lang="en">The Brand Brain keeps voice, lines and rules, and the agents follow them.</span></div><small class="cite"><span data-lang="pt">Ehrenberg-Bass, ativos distintivos de marca</span><span data-lang="en">Ehrenberg-Bass, distinctive brand assets</span></small></div></div>
       <div class="bnote reveal">
@@ -653,7 +601,6 @@
       <div class="faq">
         <details><summary><span data-lang="pt">O Rize Studio é vendido como ferramenta?</span><span data-lang="en">Is Rize Studio sold as a tool?</span></summary><p data-lang="pt">Não. A Rize vende o serviço de conteúdo; o Rize Studio é o software que usamos para entregar esse serviço com mais velocidade e consistência.</p><p data-lang="en">No. Rize sells the content service; Rize Studio is the software we use to deliver it faster and more consistently.</p></details>
         <details><summary><span data-lang="pt">Vocês trabalham com marca pessoal ou com a marca da empresa?</span><span data-lang="en">Do you work on the personal brand or the company brand?</span></summary><p data-lang="pt">Com as duas, ligadas. A marca pessoal da fundadora gera confiança e atenção; a marca da empresa recebe essas pessoas e transforma em clientes. A estratégia define o papel de cada uma.</p><p data-lang="en">Both, connected. The founder's personal brand builds trust and attention; the company brand receives those people and turns them into clients. The strategy defines each one's role.</p></details>
-        <details><summary><span data-lang="pt">Por que vocês não trabalham com funil?</span><span data-lang="en">Why don't you work with a funnel?</span></summary><p data-lang="pt">Porque as pessoas não compram mais em linha reta. Elas exploram e avaliam várias vezes, em canais que não aparecem nos relatórios, e chegam à conversa já decididas. Por isso planejamos presença contínua nos dois modos, explorar e avaliar, com a marca pessoal como fonte de confiança, em vez de empurrar a pessoa de etapa em etapa.</p><p data-lang="en">Because people no longer buy in a straight line. They explore and evaluate many times, in channels reports don't show, and arrive at the conversation already decided. So we plan continuous presence in both modes, exploring and evaluating, with the personal brand as the source of trust, instead of pushing people from stage to stage.</p></details>
         <details><summary><span data-lang="pt">A IA publica sozinha?</span><span data-lang="en">Does the AI publish on its own?</span></summary><p data-lang="pt">Só depois que a marca aprova. Antes disso, os agentes preparam, sugerem e revisam, e qualquer pessoa do time pode ajustar ou desfazer o que eles fizeram.</p><p data-lang="en">Only after the brand approves. Before that, agents prepare, suggest and review, and anyone on the team can adjust or undo what they did.</p></details>
         <details><summary><span data-lang="pt">Os dados da minha marca ficam separados?</span><span data-lang="en">Is my brand's data kept separate?</span></summary><p data-lang="pt">Sim. Cada marca é isolada no próprio banco de dados, o acesso do time exige verificação em duas etapas e a marca pode pedir a exportação ou a exclusão dos seus dados (LGPD).</p><p data-lang="en">Yes. Each brand is isolated in the database itself, team access requires two-step verification, and the brand can request export or deletion of its data (LGPD).</p></details>
         <details><summary><span data-lang="pt">Em quais redes vocês publicam?</span><span data-lang="en">Which networks do you publish to?</span></summary><p data-lang="pt">A lista prevista inclui Instagram, Facebook, TikTok, YouTube, LinkedIn, Threads, X, Pinterest e Google Business Profile. Elas entram por etapas, usando as APIs oficiais.</p><p data-lang="en">The planned list includes Instagram, Facebook, TikTok, YouTube, LinkedIn, Threads, X, Pinterest and Google Business Profile. They arrive in stages, using official APIs.</p></details>
