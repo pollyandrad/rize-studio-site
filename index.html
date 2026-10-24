@@ -3,283 +3,506 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rize Studio</title>
-<meta name="description" content="Rize: uma agência de marketing que funciona como software. O Rize Studio, nossa plataforma com agentes de IA, entrega o trabalho de conteúdo das marcas.">
+<title>Rize Studio — serviço de conteúdo que funciona como software</title>
+<meta name="description" content="A Rize é uma agência de marketing construída como empresa de software. O Rize Studio, com agentes de IA, encontra trends, adapta à voz de cada marca, organiza aprovações e publica.">
+<meta property="og:title" content="Rize Studio">
+<meta property="og:description" content="Serviço de conteúdo que funciona como software. Agentes de IA no trabalho repetitivo, o time da Rize no que exige julgamento.">
+<meta property="og:image" content="logo-rize.png">
+<meta name="theme-color" content="#545454">
+<link rel="icon" href="logo-rize.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Josefin+Sans:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#545454;--card:#5b5b5b;--line:#6b6b6b;--text:#ede8ad;--muted:rgba(237,232,173,.88);--ink:#110910}
+  :root{
+    --bg:#545454;--bg2:#5b5b5b;--panel:#4b4b4b;--line:rgba(237,232,173,.18);--line2:rgba(237,232,173,.32);
+    --text:#ede8ad;--muted:rgba(237,232,173,.84);--soft:rgba(237,232,173,.64);--ink:#110910;
+    --r:18px;--max:1120px;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--text);font:400 17px/1.7 Inter,system-ui,sans-serif}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-  header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-  .brand{display:flex;align-items:center;gap:14px}
-  .brand img{height:64px;width:auto;display:block}
-  .brand .studio{font:600 22px "Cormorant Garamond",serif;letter-spacing:.02em;border-left:1px solid var(--line);padding-left:14px}
-  .lang{display:flex;gap:4px;border:1px solid var(--line);border-radius:999px;padding:4px}
-  .lang button{background:none;border:0;color:var(--muted);font:600 12px "Josefin Sans";letter-spacing:.12em;padding:6px 12px;border-radius:999px;cursor:pointer}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font:400 17px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .eyebrow{font:600 12px "Josefin Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+  h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:600}
+  h1{font-size:clamp(40px,6.2vw,74px);line-height:1.02}
+  h2{font-size:clamp(32px,4.4vw,52px);line-height:1.06}
+  h3{font-size:24px;line-height:1.15}
+  p{color:var(--muted)}
+  .lead{font-size:clamp(17px,1.6vw,20px);max-width:640px}
+
+  .nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(84,84,84,.85);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand img{height:46px;width:auto}
+  .brand span{font:600 20px "Cormorant Garamond",serif;border-left:1px solid var(--line2);padding-left:12px}
+  .menu{display:flex;gap:26px;font-size:15px}
+  .menu a{text-decoration:none;color:var(--muted)}
+  .menu a:hover{color:var(--text)}
+  .right{display:flex;align-items:center;gap:10px}
+  .lang{display:flex;border:1px solid var(--line2);border-radius:999px;padding:3px}
+  .lang button{background:none;border:0;color:var(--soft);font:600 12px "Josefin Sans";letter-spacing:.12em;padding:6px 11px;border-radius:999px;cursor:pointer}
   .lang button.on{background:var(--text);color:var(--ink)}
-  .hero{padding:64px 0 52px}
-  .tag{display:inline-block;font:400 12px "Josefin Sans";letter-spacing:.2em;text-transform:uppercase;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:26px}
-  h1{font:600 clamp(36px,6vw,64px)/1.05 "Cormorant Garamond",serif;max-width:860px}
-  .lead{color:var(--muted);font-size:clamp(17px,2vw,20px);max-width:700px;margin-top:22px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;padding:24px 0 72px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
-  .card h3{font:600 22px "Cormorant Garamond",serif;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:16px}
-  .num{color:var(--text);font:600 12px "Josefin Sans";letter-spacing:.2em;margin-bottom:14px;display:block;opacity:.8}
-  section h2{font:600 clamp(28px,3.6vw,40px)/1.12 "Cormorant Garamond",serif;margin-bottom:16px}
-  .block{border-top:1px solid var(--line);padding:56px 0}
-  .block p{color:var(--muted);max-width:740px}
-  .about{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:40px;align-items:center}
-  .about img{width:100%;height:auto;border-radius:12px}
-  @media (max-width:720px){.about{grid-template-columns:1fr}.brand img{height:52px}}
-  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
-  .svc{border:1px solid var(--line);border-radius:12px;padding:18px}
-  .svc b{display:block;font:600 20px "Cormorant Garamond",serif;margin-bottom:4px}
-  .svc span{color:var(--muted);font-size:15px}
-  .steps{list-style:none;counter-reset:s;display:grid;gap:10px;margin-top:20px}
-  .steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;border-bottom:1px solid var(--line);padding:12px 0}
-  .steps li::before{content:counter(s,decimal-leading-zero);font:600 13px "Josefin Sans";letter-spacing:.15em;opacity:.8;padding-top:4px}
-  .steps b{font:600 20px "Cormorant Garamond",serif}
-  .steps span{display:block;color:var(--muted);font-size:16px}
-  .phase{font:600 12px "Josefin Sans";letter-spacing:.2em;text-transform:uppercase;margin-top:28px;opacity:.85}
-  /* elementos desenhados à mão */
-  .mk{position:relative;display:inline-block;white-space:nowrap;z-index:0}
-  .mk svg{position:absolute;pointer-events:none;overflow:visible;z-index:-1}
-  .mk path,.sketch>svg path,.tick path{fill:none;stroke:var(--text);stroke-linecap:round;stroke-linejoin:round}
-  .mk-h path{stroke:rgba(237,232,173,.28)}
-  .sketch{position:relative;border-color:transparent!important}
-  .sketch>svg{position:absolute;inset:-3px;width:calc(100% + 6px);height:calc(100% + 6px);pointer-events:none;overflow:visible}
-  .sketch>svg path{stroke:rgba(237,232,173,.55);stroke-width:1.4}
-  .sketch:hover>svg path{stroke:var(--text)}
-  .tick{display:inline-block;width:16px;height:14px;margin-right:6px;vertical-align:-2px}
-  .tick svg{overflow:visible}
-  .tick path{stroke:var(--ink);stroke-width:2.2}
-  .draw path{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
-  .draw.on path{transition:stroke-dashoffset var(--dur,900ms) cubic-bezier(.6,.1,.3,1) var(--delay,0ms);stroke-dashoffset:0}
-  @media (prefers-reduced-motion:reduce){.draw path{stroke-dashoffset:0!important;transition:none!important}}
-  .status{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-  .pill{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;color:var(--muted)}
-  .pill.done{color:var(--ink);background:var(--text);border-color:var(--text)}
-  footer{background:var(--ink);color:var(--muted);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:28px 20px 40px}
-  a{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font:600 15px Inter;text-decoration:none;border-radius:999px;padding:12px 20px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.primary{background:var(--text);color:var(--ink)}
+  .btn.ghost{border:1px solid var(--line2);color:var(--text)}
+  .btn.sm{padding:9px 16px;font-size:14px}
+  @media (max-width:900px){.menu{display:none}}
+  @media (max-width:520px){.nav .btn.sm{display:none}.brand img{height:40px}}
+
+  .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+  .hero .note{margin-top:16px;font-size:14px;color:var(--soft)}
+  @media (max-width:980px){.hero{grid-template-columns:1fr;padding-top:48px}}
+
+  .app{background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);box-shadow:0 30px 60px -30px rgba(17,9,16,.7);overflow:hidden}
+  .app .bar{display:flex;align-items:center;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .app .bar i{width:10px;height:10px;border-radius:50%;background:var(--line2)}
+  .app .bar span{margin-left:10px;font-size:12px;color:var(--soft)}
+  .app .body{display:grid;grid-template-columns:150px 1fr;min-height:330px}
+  .side{border-right:1px solid var(--line);padding:14px 10px;display:flex;flex-direction:column;gap:4px;font-size:13px}
+  .side b{font:600 11px "Josefin Sans";letter-spacing:.16em;text-transform:uppercase;color:var(--soft);padding:4px 8px 8px}
+  .side a{padding:7px 8px;border-radius:8px;text-decoration:none;color:var(--muted)}
+  .side a.on{background:rgba(237,232,173,.12);color:var(--text)}
+  .main{padding:16px;display:flex;flex-direction:column;gap:10px}
+  .main h4{font:600 20px "Cormorant Garamond",serif;display:flex;justify-content:space-between;align-items:baseline}
+  .main h4 small{font:400 12px Inter;color:var(--soft)}
+  .trend{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px}
+  .trend strong{font-weight:600;color:var(--text)}
+  .trend .meta{color:var(--soft);font-size:12px}
+  .badge{display:inline-block;font:600 10px "Josefin Sans";letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line2);border-radius:999px;padding:3px 8px;color:var(--text);margin-right:6px}
+  .badge.hot{background:var(--text);color:var(--ink);border-color:var(--text)}
+  .fit{grid-row:span 2;align-self:center;text-align:right;font:600 24px "Cormorant Garamond",serif}
+  .fit small{display:block;font:400 11px Inter;color:var(--soft)}
+  @media (max-width:560px){.app .body{grid-template-columns:1fr}.side{display:none}}
+  .caption{font-size:12px;color:var(--soft);margin-top:10px;text-align:right}
+
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin-top:56px;overflow:hidden}
+  .strip .eyebrow{text-align:center;margin-bottom:16px}
+  .marquee{display:flex;gap:44px;width:max-content;animation:slide 45s linear infinite}
+  .marquee span{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--muted);white-space:nowrap}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  .ic{width:20px;height:20px;background:var(--text);-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat;display:inline-block;flex:none}
+  .tx{width:20px;height:20px;border:1.5px solid var(--text);border-radius:5px;display:inline-grid;place-items:center;font:600 10px Inter;flex:none;font-style:normal}
+
+  section{padding:104px 0}
+  .head{max-width:760px;margin-bottom:44px}
+  .head p{margin-top:16px}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pillar{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--bg2)}
+  .pillar .n{font:600 13px "Josefin Sans";letter-spacing:.2em;color:var(--soft)}
+  .pillar h3{margin:12px 0 8px}
+  @media (max-width:860px){.pillars{grid-template-columns:1fr}}
+
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
+  .feature.flip .copy{order:2}
+  .feature ul{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .feature li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--muted);font-size:16px}
+  .feature li::before{content:"";width:14px;height:14px;margin-top:6px;border:1.5px solid var(--text);border-radius:4px}
+  .instead{margin-top:20px;font-size:14px;color:var(--soft)}
+  .instead b{font:600 11px "Josefin Sans";letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-right:8px}
+  @media (max-width:900px){.feature{grid-template-columns:1fr;gap:28px}.feature.flip .copy{order:0}}
+
+  .feed{padding:16px}
+  .profile{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .avatar{width:44px;height:44px;border-radius:50%;background:var(--text);color:var(--ink);display:grid;place-items:center;font:600 18px "Cormorant Garamond",serif}
+  .profile strong{display:block;font-size:14px}
+  .profile span{font-size:12px;color:var(--soft)}
+  .grid9{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+  .tile{aspect-ratio:4/5;border-radius:6px;position:relative;background:linear-gradient(135deg,#6a6a6a,#4a4a4a);overflow:hidden}
+  .tile:nth-child(3n+2){background:linear-gradient(135deg,#ede8ad,#cfc98d)}
+  .tile:nth-child(4n){background:linear-gradient(135deg,#3c3c3c,#2a2a2a)}
+  .tile .st{position:absolute;left:6px;bottom:6px;font:600 9px "Josefin Sans";letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--text);padding:3px 6px;border-radius:999px}
+  .comment{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;align-items:center}
+  .comment .ok{font:600 12px Inter;background:var(--text);color:var(--ink);border-radius:999px;padding:6px 12px;white-space:nowrap}
+
+  .log{padding:14px 16px;display:grid;font-size:13px}
+  .row{display:grid;grid-template-columns:86px 1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);align-items:center}
+  .row:last-child{border:0}
+  .row .who{font:600 11px "Josefin Sans";letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+  .row .st{font-size:11px;border:1px solid var(--line2);border-radius:999px;padding:2px 8px;color:var(--text);white-space:nowrap}
+  .row .st.done{background:var(--text);color:var(--ink);border-color:var(--text)}
+
+  .ints{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .int{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--bg2)}
+  .int h3{font-size:22px}
+  .int p{font-size:14px;margin:4px 0 14px}
+  .int ul{list-style:none;display:grid;gap:9px;font-size:15px}
+  .int li{display:flex;align-items:center;gap:10px}
+  @media (max-width:980px){.ints{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.ints{grid-template-columns:1fr}}
+
+  .phases{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .phase{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--bg2)}
+  .phase ol{list-style:none;counter-reset:s;margin-top:16px}
+  .phase li{counter-increment:s;display:grid;grid-template-columns:38px 1fr;padding:12px 0;border-top:1px solid var(--line)}
+  .phase li::before{content:counter(s,decimal-leading-zero);font:600 12px "Josefin Sans";letter-spacing:.15em;color:var(--soft);padding-top:5px}
+  .phase li b{font:600 20px "Cormorant Garamond",serif;display:block}
+  .phase li span{font-size:15px;color:var(--muted)}
+  @media (max-width:860px){.phases{grid-template-columns:1fr}}
+
+  .services{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .svc{border:1px solid var(--line);border-radius:14px;padding:20px}
+  .svc b{display:block;font:600 21px "Cormorant Garamond",serif;margin-bottom:4px}
+  .svc span{font-size:14px;color:var(--muted)}
+  @media (max-width:980px){.services{grid-template-columns:1fr 1fr}}
+
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:860px){.trust{grid-template-columns:1fr}}
+  .status{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;justify-content:center}
+  .pill{border:1px solid var(--line2);border-radius:999px;padding:7px 16px;font-size:14px;color:var(--muted)}
+  .pill.done{background:var(--text);color:var(--ink);border-color:var(--text)}
+
+  .about{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center}
+  .about img{border-radius:var(--r)}
+  @media (max-width:860px){.about{grid-template-columns:1fr}}
+
+  details{border-top:1px solid var(--line);padding:20px 0}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font:600 22px "Cormorant Garamond",serif}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font:400 24px Inter;color:var(--soft)}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:10px;max-width:760px}
+
+  .final{background:var(--ink);border-radius:28px;padding:72px 32px;text-align:center}
+  .final h2{max-width:760px;margin:0 auto}
+  .final p{margin:16px auto 0;max-width:560px}
+  .final .actions{display:flex;justify-content:center;gap:10px;margin-top:28px;flex-wrap:wrap}
+
+  footer{border-top:1px solid var(--line);padding:48px 0 56px;font-size:14px;color:var(--soft)}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+  footer h4{font:600 12px "Josefin Sans";letter-spacing:.2em;text-transform:uppercase;color:var(--text);margin-bottom:12px}
+  footer a{text-decoration:none;color:var(--muted);display:block;margin:6px 0}
+  footer img{height:54px;width:auto;margin-bottom:12px}
+  @media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+
   html[lang="pt-BR"] [data-lang="en"],html[lang="en"] [data-lang="pt"]{display:none!important}
 
-  nav.top{display:flex;gap:22px;font-size:14px}
-  nav.top a{text-decoration:none;color:var(--muted)}
-  nav.top a:hover{color:var(--text)}
-  @media (max-width:820px){nav.top{display:none}}
-  .cta{display:inline-flex;align-items:center;gap:8px;background:var(--text);color:var(--ink);text-decoration:none;font:500 15px Inter;padding:12px 20px;border-radius:999px;margin-top:28px}
-  .cta.ghost{background:none;color:var(--text);border:1px solid var(--line);margin-left:8px}
-  .logos{display:flex;flex-wrap:wrap;gap:22px 28px;align-items:center;margin-top:44px;opacity:.9}
-  .logos .ic,.int .ic{width:22px;height:22px;background:var(--text);-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat;display:inline-block;flex:none}
-  .logos small{display:block;width:100%;font:600 11px "Josefin Sans";letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-  .feat{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
-  @media (max-width:760px){.feat{grid-template-columns:1fr}}
-  .feat .card{padding:26px}
-  .feat ul{margin:12px 0 0 18px;color:var(--muted);font-size:15px}
-  .replaces{margin-top:14px;font-size:13px;color:var(--muted)}
-  .replaces b{font:600 11px "Josefin Sans";letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-right:6px}
-  .ints{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:24px}
-  .ints h3{font:600 20px "Cormorant Garamond",serif;margin-bottom:4px}
-  .ints .when{font-size:13px;color:var(--muted);margin-bottom:14px;display:block}
-  .int{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:15px}
-  .int .dot{width:22px;height:22px;border:1.5px solid var(--text);border-radius:6px;display:inline-grid;place-items:center;font:600 11px Inter;flex:none}
-  details{border-bottom:1px solid var(--line);padding:16px 0}
-  summary{cursor:pointer;font:600 21px "Cormorant Garamond",serif;list-style:none}
-  summary::-webkit-details-marker{display:none}
-  details p{margin-top:10px}
-  .final{text-align:center;padding:72px 0}
-  .final p{margin:12px auto 0}
+  .mk{position:relative;display:inline-block;white-space:nowrap;z-index:0}
+  .mk svg{position:absolute;pointer-events:none;overflow:visible;z-index:-1}
+  .mk path{fill:none;stroke:var(--text);stroke-linecap:round;stroke-linejoin:round}
+  .mk-h path{stroke:rgba(237,232,173,.28)}
+  .draw path{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+  .draw.on path{transition:stroke-dashoffset 1s cubic-bezier(.6,.1,.3,1) .25s;stroke-dashoffset:0}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.draw path{stroke-dashoffset:0!important;transition:none!important}.reveal{opacity:1;transform:none;transition:none}.marquee{animation:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="brand"><img src="logo-rize.png" alt="Rize Marketing" width="360" height="220"><span class="studio">Studio</span></div>
-    <nav class="top">
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Rize Studio"><img src="logo-rize.png" alt="Rize Marketing" width="360" height="220"><span>Studio</span></a>
+    <nav class="menu">
       <a href="#como"><span data-lang="pt">Como funciona</span><span data-lang="en">How it works</span></a>
+      <a href="#modulos"><span data-lang="pt">Módulos</span><span data-lang="en">Modules</span></a>
       <a href="#integracoes"><span data-lang="pt">Integrações</span><span data-lang="en">Integrations</span></a>
-      <a href="#agentes"><span data-lang="pt">Agentes</span><span data-lang="en">Agents</span></a>
-      <a href="#rize"><span data-lang="pt">A Rize</span><span data-lang="en">About</span></a>
+      <a href="#processo"><span data-lang="pt">Processo</span><span data-lang="en">Process</span></a>
+      <a href="#perguntas"><span data-lang="pt">Perguntas</span><span data-lang="en">FAQ</span></a>
     </nav>
-    <div class="lang" role="group" aria-label="Idioma / Language">
-      <button type="button" data-set="pt-BR" class="on">PT</button>
-      <button type="button" data-set="en">EN</button>
+    <div class="right">
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="pt-BR" class="on">PT</button><button type="button" data-set="en">EN</button></div>
+      <a class="btn primary sm" href="mailto:rizeagenciamkt@gmail.com"><span data-lang="pt">Fale com a Rize</span><span data-lang="en">Talk to Rize</span></a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <span class="tag" data-lang="pt">Serviço que funciona como software · em desenvolvimento</span><span class="tag" data-lang="en">Services as software · in development</span>
-      <h1 data-lang="pt">A Rize vende o <span class="mk mk-u">trabalho de conteúdo pronto</span>. O Rize Studio é o <span class="mk mk-c">software</span> que faz esse trabalho.</h1>
-      <h1 data-lang="en">Rize sells <span class="mk mk-u">finished content work</span>. Rize Studio is the <span class="mk mk-c">software</span> that does it.</h1>
-      <p class="lead" data-lang="pt">Somos uma agência de marketing construída como empresa de software. As marcas não compram uma ferramenta: compram o resultado (trends encontradas, conteúdo adaptado à voz delas, aprovado e publicado). Agentes de IA fazem o trabalho repetitivo no Rize Studio, e o time da Rize cuida do que exige julgamento.</p><p class="lead" data-lang="en">We are a marketing agency built as a software company. Brands don't buy a tool: they buy the outcome (trends found, content adapted to their voice, approved and published). AI agents do the repetitive work inside Rize Studio, and the Rize team handles what takes judgement.</p>
-      <a class="cta" href="mailto:rizeagenciamkt@gmail.com"><span data-lang="pt">Fale com a Rize</span><span data-lang="en">Talk to Rize</span></a>
-      <a class="cta ghost" href="#como"><span data-lang="pt">Como funciona</span><span data-lang="en">How it works</span></a>
-      <div class="logos" aria-label="Integrações">
-        <small><span data-lang="pt">Conectado onde a sua marca está</span><span data-lang="en">Connected where your brand lives</span></small>
-        <i class="ic" title="Instagram" style="--src:url(icons/instagram.svg)"></i><i class="ic" title="TikTok" style="--src:url(icons/tiktok.svg)"></i><i class="ic" title="YouTube" style="--src:url(icons/youtube.svg)"></i><i class="ic" title="Facebook" style="--src:url(icons/facebook.svg)"></i><i class="ic" title="Threads" style="--src:url(icons/threads.svg)"></i><i class="ic" title="X" style="--src:url(icons/x.svg)"></i><i class="ic" title="Pinterest" style="--src:url(icons/pinterest.svg)"></i><i class="ic" title="Canva" style="--src:url(icons/canva.svg)"></i><i class="ic" title="Google Drive" style="--src:url(icons/googledrive.svg)"></i><i class="ic" title="Claude" style="--src:url(icons/claude.svg)"></i><i class="ic" title="Meta" style="--src:url(icons/meta.svg)"></i><i class="ic" title="Google Ads" style="--src:url(icons/googleads.svg)"></i>
-      </div>
-    </section>
-
-    <section class="block" id="como">
-      <h2 data-lang="pt">Do <span class="mk mk-u">sinal</span> ao post publicado</h2>
-      <h2 data-lang="en">From <span class="mk mk-u">signal</span> to published post</h2>
-      <p data-lang="pt">Cada etapa do nosso serviço tem um módulo no Rize Studio. Os agentes fazem a parte repetitiva, a cliente aprova e o time decide.</p><p data-lang="en">Each step of our service has a module in Rize Studio. Agents do the repetitive part, the client approves and the team decides.</p>
-      <div class="feat">
-        <div class="card sketch"><span class="num">01</span><h3><span data-lang="pt">Trends de hoje</span><span data-lang="en">Today's trends</span></h3>
-          <ul data-lang="pt"><li>Monitoramento diário de sinais por marca</li><li>Fase de cada trend: surgindo, em alta, saturando</li><li>Alertas quando algo cresce no setor da marca</li></ul>
-          <ul data-lang="en"><li>Daily signal monitoring per brand</li><li>Each trend's phase: emerging, rising, saturating</li><li>Alerts when something grows in the brand's sector</li></ul>
-          <p class="replaces"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">horas rolando o feed</span><span data-lang="en">hours of scrolling</span></p></div>
-        <div class="card sketch"><span class="num">02</span><h3><span data-lang="pt">Inspiração analisada</span><span data-lang="en">Analyzed inspiration</span></h3>
-          <ul data-lang="pt"><li>Posts que vão muito acima da média do criador</li><li>Ideia, gancho reutilizável, formato e esforço para gravar</li><li>Adaptação pronta na voz de cada marca</li></ul>
-          <ul data-lang="en"><li>Posts far above the creator's usual results</li><li>Idea, reusable hook, format and production effort</li><li>Ready adaptation in each brand's voice</li></ul>
-          <p class="replaces"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">bibliotecas de inspiração genéricas</span><span data-lang="en">generic inspiration libraries</span></p></div>
-        <div class="card sketch"><span class="num">03</span><h3><span data-lang="pt">Planejamento e criação</span><span data-lang="en">Planning and creation</span></h3>
-          <ul data-lang="pt"><li>Cérebro de cada marca: público, voz, regras e capacidade</li><li>Pauta e roteiros escritos pelos agentes</li><li>Revisão de voz, fatos e regras de marca</li></ul>
-          <ul data-lang="en"><li>Each brand's brain: audience, voice, rules and capacity</li><li>Plans and scripts written by agents</li><li>Voice, fact and brand-rule review</li></ul>
-          <p class="replaces"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">planilhas e quadros soltos</span><span data-lang="en">scattered spreadsheets and boards</span></p></div>
-        <div class="card sketch"><span class="num">04</span><h3><span data-lang="pt">Prévia do feed e aprovação</span><span data-lang="en">Feed preview and approval</span></h3>
-          <ul data-lang="pt"><li>A marca vê o mês inteiro como no Instagram</li><li>Comenta, pede ajuste e aprova num clique</li><li>Nada é publicado sem aprovação</li></ul>
-          <ul data-lang="en"><li>The brand sees the whole month as on Instagram</li><li>Comments, requests changes and approves in one click</li><li>Nothing is published without approval</li></ul>
-          <p class="replaces"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">prints e aprovações por mensagem</span><span data-lang="en">screenshots and approvals by message</span></p></div>
-        <div class="card sketch"><span class="num">05</span><h3><span data-lang="pt">Publicação e automação</span><span data-lang="en">Publishing and automation</span></h3>
-          <ul data-lang="pt"><li>Agendamento no melhor horário depois da aprovação</li><li>Automação de comentário para DM pronta junto com o post</li><li>Inbox e respostas em um só lugar</li></ul>
-          <ul data-lang="en"><li>Scheduling at the best time after approval</li><li>Comment-to-DM automation ready with the post</li><li>Inbox and replies in one place</li></ul>
-          <p class="replaces"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">várias ferramentas de agendamento e automação</span><span data-lang="en">several scheduling and automation tools</span></p></div>
-        <div class="card sketch"><span class="num">06</span><h3><span data-lang="pt">Métricas e relatórios</span><span data-lang="en">Metrics and reports</span></h3>
-          <ul data-lang="pt"><li>Resultados por marca e por rede</li><li>Relatório do mês enviado à marca</li><li>Custo de IA controlado por marca</li></ul>
-          <ul data-lang="en"><li>Results per brand and per network</li><li>Monthly report sent to the brand</li><li>AI cost controlled per brand</li></ul>
-          <p class="replaces"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">relatórios montados à mão</span><span data-lang="en">hand-built reports</span></p></div>
-      </div>
-    </section>
-
-    <section class="block" id="integracoes">
-      <h2 data-lang="pt">Integrações</h2><h2 data-lang="en">Integrations</h2>
-      <p data-lang="pt">As integrações entram por etapas, junto com cada módulo do Rize Studio. Esta é a lista prevista; a publicação nas redes usa as APIs oficiais de cada uma.</p><p data-lang="en">Integrations arrive in stages, alongside each Rize Studio module. This is the planned list; publishing uses each network's official API.</p>
-      <div class="ints">
-        <div class="card sketch"><h3><span data-lang="pt">Redes sociais</span><span data-lang="en">Social networks</span></h3><span class="when" data-lang="pt">publicação, métricas e automação</span><span class="when" data-lang="en">publishing, metrics and automation</span>
-          <span class="int"><i class="ic" style="--src:url(icons/instagram.svg)"></i>Instagram</span><span class="int"><i class="ic" style="--src:url(icons/facebook.svg)"></i>Facebook</span><span class="int"><i class="ic" style="--src:url(icons/tiktok.svg)"></i>TikTok</span><span class="int"><i class="ic" style="--src:url(icons/youtube.svg)"></i>YouTube</span><span class="int"><i class="dot">in</i>LinkedIn</span><span class="int"><i class="ic" style="--src:url(icons/threads.svg)"></i>Threads</span><span class="int"><i class="ic" style="--src:url(icons/x.svg)"></i>X</span><span class="int"><i class="ic" style="--src:url(icons/pinterest.svg)"></i>Pinterest</span><span class="int"><i class="ic" style="--src:url(icons/googlemaps.svg)"></i>Google Business Profile</span></div>
-        <div class="card sketch"><h3><span data-lang="pt">Criação e arquivos</span><span data-lang="en">Creation and files</span></h3><span class="when" data-lang="pt">artes, vídeos e materiais da marca</span><span class="when" data-lang="en">brand graphics, videos and files</span>
-          <span class="int"><i class="ic" style="--src:url(icons/canva.svg)"></i>Canva</span><span class="int"><i class="ic" style="--src:url(icons/googledrive.svg)"></i>Google Drive</span></div>
-        <div class="card sketch"><h3><span data-lang="pt">IA e dados</span><span data-lang="en">AI and data</span></h3><span class="when" data-lang="pt">análise, coleta e conexão com o Claude</span><span class="when" data-lang="en">analysis, collection and Claude connection</span>
-          <span class="int"><i class="ic" style="--src:url(icons/claude.svg)"></i>Claude</span><span class="int"><i class="ic" style="--src:url(icons/modelcontextprotocol.svg)"></i>MCP</span><span class="int"><i class="dot">A</i>Apify</span></div>
-        <div class="card sketch"><h3><span data-lang="pt">Anúncios</span><span data-lang="en">Ads</span></h3><span class="when" data-lang="pt">acompanhamento de campanhas</span><span class="when" data-lang="en">campaign tracking</span>
-          <span class="int"><i class="ic" style="--src:url(icons/meta.svg)"></i>Meta Ads</span><span class="int"><i class="ic" style="--src:url(icons/googleads.svg)"></i>Google Ads</span><span class="int"><i class="ic" style="--src:url(icons/tiktok.svg)"></i>TikTok Ads</span></div>
-      </div>
-    </section>
-    <section class="block">
-      <h2 data-lang="pt">O que <span class="mk mk-u">fazemos</span></h2><h2 data-lang="en">What we <span class="mk mk-u">do</span></h2>
-      <div class="services">
-        <div class="svc sketch"><b data-lang="pt">Estratégia</b><b data-lang="en">Strategy</b><span data-lang="pt">gestão e relacionamento com as clientes</span><span data-lang="en">client management and relationship</span></div>
-        <div class="svc sketch"><b>Design</b><span data-lang="pt">artes e carrosséis</span><span data-lang="en">graphics and carousels</span></div>
-        <div class="svc sketch"><b>Social media</b><span data-lang="pt">copys, calendário e agendamento</span><span data-lang="en">copy, calendar and scheduling</span></div>
-        <div class="svc sketch"><b data-lang="pt">Edição de vídeo</b><b data-lang="en">Video editing</b><span data-lang="pt">reels e cortes</span><span data-lang="en">reels and cuts</span></div>
-        <div class="svc sketch"><b data-lang="pt">Landing pages e produto</b><b data-lang="en">Landing pages and product</b><span data-lang="pt">páginas e produtos digitais</span><span data-lang="en">pages and digital products</span></div>
-      </div>
-    </section>
-
-    <section class="block">
-      <h2 data-lang="pt">Como trabalhamos</h2><h2 data-lang="en">How we work</h2>
-      <p data-lang="pt">Um processo único para todas as clientes. O Rize Studio está sendo construído para que os agentes façam a parte repetitiva de cada etapa e o time cuide das decisões.</p>
-      <p data-lang="en">One process for every client. Rize Studio is being built so agents do the repetitive part of each step and the team makes the decisions.</p>
-      <p class="phase" data-lang="pt">Início da parceria</p><p class="phase" data-lang="en">Getting started</p>
-      <ol class="steps">
-        <li><div><b data-lang="pt">Entrada da cliente</b><b data-lang="en">Client onboarding</b><span data-lang="pt">briefing, acessos às redes, pasta de materiais e onboarding, em até 3 dias.</span><span data-lang="en">briefing, social media access, materials folder and onboarding, within 3 days.</span></div></li>
-        <li><div><b data-lang="pt">Pesquisa e análise</b><b data-lang="en">Research and analysis</b><span data-lang="pt">propósito e tom de voz da marca, concorrentes, tendências do mercado, SWOT, persona e presença nas redes.</span><span data-lang="en">brand purpose and tone of voice, competitors, market trends, SWOT, persona and social presence.</span></div></li>
-        <li><div><b data-lang="pt">Estratégia de conteúdo</b><b data-lang="en">Content strategy</b><span data-lang="pt">estrutura da estratégia e linha editorial.</span><span data-lang="en">strategy structure and editorial line.</span></div></li>
-        <li><div><b data-lang="pt">Apresentação</b><b data-lang="en">Presentation</b><span data-lang="pt">reunião com a cliente, feedback e ajustes.</span><span data-lang="en">client meeting, feedback and adjustments.</span></div></li>
-      </ol>
-      <p class="phase" data-lang="pt">Todo mês</p><p class="phase" data-lang="en">Every month</p>
-      <ol class="steps">
-        <li><div><b data-lang="pt">Planejamento e criação</b><b data-lang="en">Planning and creation</b><span data-lang="pt">pauta e cronograma do mês seguinte, de acordo com a estratégia aprovada.</span><span data-lang="en">next month's plan and schedule, following the approved strategy.</span></div></li>
-        <li><div><b data-lang="pt">Design e edição de vídeo</b><b data-lang="en">Design and video editing</b><span data-lang="pt">artes e vídeos na identidade visual da marca.</span><span data-lang="en">graphics and videos in the brand's visual identity.</span></div></li>
-        <li><div><b data-lang="pt">Revisão e aprovação</b><b data-lang="en">Review and approval</b><span data-lang="pt">a cliente aprova antes de qualquer publicação.</span><span data-lang="en">the client approves before anything is published.</span></div></li>
-        <li><div><b data-lang="pt">Publicação</b><b data-lang="en">Publishing</b><span data-lang="pt">agendamento no calendário aprovado.</span><span data-lang="en">scheduling on the approved calendar.</span></div></li>
-        <li><div><b data-lang="pt">Métricas, gargalos e manutenção</b><b data-lang="en">Metrics, bottlenecks and upkeep</b><span data-lang="pt">resultados, prazos e comunicação revisados para melhorar o mês seguinte.</span><span data-lang="en">results, deadlines and communication reviewed to improve the next month.</span></div></li>
-      </ol>
-    </section>
-
-    <section class="block">
-      <h2 data-lang="pt">Serviço que funciona como software</h2>
-      <h2 data-lang="en">Services as software</h2>
-      <p data-lang="pt">Marketing de conteúdo já é um trabalho que as marcas terceirizam para agências. A Rize entrega esse mesmo serviço, mas com o trabalho feito por software: monitorar trends, analisar o que performa, adaptar para cada marca, organizar aprovações e publicar. Cada melhoria dos modelos de IA deixa o serviço mais rápido e com custo menor, e cada aprovação e ajuste do time ensina os agentes a acertar mais na próxima vez.</p>
-      <p data-lang="en">Content marketing is work brands already outsource to agencies. Rize delivers that same service, with the work done by software: monitoring trends, analyzing what performs, adapting it to each brand, running approvals and publishing. Every improvement in AI models makes the service faster and cheaper, and every approval and correction from the team teaches the agents to get it right next time.</p>
-    </section>
-
-    <section class="block" id="agentes">
-      <h2 data-lang="pt">Agentes autônomos, com a pessoa no controle</h2>
-      <h2 data-lang="en">Autonomous agents, with people in control</h2>
-      <p data-lang="pt">Os agentes fazem o trabalho do dia a dia sozinhos. Tudo o que fazem fica registrado, pode ser ajustado e desfeito, e uma edição humana nunca é sobrescrita. Cada marca tem orçamento próprio, com alertas e pausa automática.</p>
-      <p data-lang="en">Agents handle the day-to-day work on their own. Everything they do is logged, can be adjusted and undone, and a human edit is never overwritten. Each brand has its own budget, with alerts and automatic pause.</p>
-      <div class="status">
-        <span class="pill done" data-lang="pt"><i class="tick"></i>Fundação: concluída</span><span class="pill done" data-lang="en"><i class="tick"></i>Foundation: done</span>
-        <span class="pill" data-lang="pt">Inspiração: próxima etapa</span><span class="pill" data-lang="en">Inspiration: next</span>
-        <span class="pill" data-lang="pt">Trends, conteúdo, automação: em seguida</span><span class="pill" data-lang="en">Trends, content, automation: after that</span>
-      </div>
-    </section>
-    <section class="block about" id="rize">
+<main id="topo">
+  <div class="wrap">
+    <div class="hero">
       <div>
-        <h2>Somos a <span class="mk mk-h">Rize</span>.</h2>
-        <p data-lang="pt">Estruturamos negócios antes de fazer marketing, para transformar marcas e negócios em ecossistemas vivos e consistentes, que se conectam com o propósito da marca para alcançar o seu objetivo. O Rize Studio é como fazemos isso em escala.</p>
-        <p data-lang="en">We structure businesses before doing marketing, turning brands and businesses into living, consistent ecosystems that connect with the brand's purpose to reach its goals. Rize Studio is how we do that at scale.</p>
+        <p class="eyebrow"><span data-lang="pt">Serviço que funciona como software</span><span data-lang="en">Services as software</span></p>
+        <h1 style="margin-top:18px" data-lang="pt">O <span class="mk mk-u">trabalho de conteúdo</span> da sua marca, feito por <span class="mk mk-c">software</span> e guiado por pessoas.</h1>
+        <h1 style="margin-top:18px" data-lang="en">Your brand's <span class="mk mk-u">content work</span>, done by <span class="mk mk-c">software</span> and guided by people.</h1>
+        <p class="lead" style="margin-top:22px" data-lang="pt">A Rize é uma agência de marketing construída como empresa de software. Você não compra uma ferramenta: recebe trends encontradas, conteúdo na voz da sua marca, aprovado e publicado. Agentes de IA fazem o trabalho repetitivo no Rize Studio; o time da Rize cuida do que exige julgamento.</p>
+        <p class="lead" style="margin-top:22px" data-lang="en">Rize is a marketing agency built as a software company. You don't buy a tool: you get trends found, content in your brand's voice, approved and published. AI agents do the repetitive work in Rize Studio; the Rize team handles what takes judgement.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:rizeagenciamkt@gmail.com"><span data-lang="pt">Fale com a Rize</span><span data-lang="en">Talk to Rize</span> →</a>
+          <a class="btn ghost" href="#como"><span data-lang="pt">Ver como funciona</span><span data-lang="en">See how it works</span></a>
+        </div>
+        <p class="note" data-lang="pt">Rize Studio em desenvolvimento · fundação concluída</p>
+        <p class="note" data-lang="en">Rize Studio in development · foundation complete</p>
       </div>
-      <img src="logo-rize.png" alt="Rize Marketing" width="360" height="220">
-    </section>
 
-    <section class="block">
-      <h2><span data-lang="pt">Perguntas</span><span data-lang="en">Questions</span></h2>
+      <div class="reveal">
+        <div class="app" role="img" aria-label="Exemplo ilustrativo da tela de Trends do Rize Studio">
+          <div class="bar"><i></i><i></i><i></i><span>Rize Studio</span></div>
+          <div class="body">
+            <div class="side">
+              <b data-lang="pt">Marca exemplo</b><b data-lang="en">Sample brand</b>
+              <a class="on"><span data-lang="pt">Trends de hoje</span><span data-lang="en">Today's trends</span></a>
+              <a><span data-lang="pt">Inspiração</span><span data-lang="en">Inspiration</span></a>
+              <a>Planner</a>
+              <a><span data-lang="pt">Aprovações</span><span data-lang="en">Approvals</span></a>
+              <a><span data-lang="pt">Automação</span><span data-lang="en">Automation</span></a>
+              <a><span data-lang="pt">Agentes</span><span data-lang="en">Agents</span></a>
+            </div>
+            <div class="main">
+              <h4><span data-lang="pt">Trends de hoje</span><span data-lang="en">Today's trends</span><small data-lang="pt">atualizado 07:00</small><small data-lang="en">updated 07:00</small></h4>
+              <div class="trend"><div><span class="badge hot" data-lang="pt">nova hoje</span><span class="badge hot" data-lang="en">new today</span><strong data-lang="pt">Bastidores do dia a dia</strong><strong data-lang="en">Behind the scenes</strong></div><div class="fit">86<small data-lang="pt">encaixe</small><small data-lang="en">fit</small></div><div class="meta" data-lang="pt">formato · em alta · esforço baixo</div><div class="meta" data-lang="en">format · rising · low effort</div></div>
+              <div class="trend"><div><span class="badge" data-lang="pt">em alta</span><span class="badge" data-lang="en">rising</span><strong data-lang="pt">"Quem é mais provável…"</strong><strong data-lang="en">"Who's most likely…"</strong></div><div class="fit">72<small data-lang="pt">encaixe</small><small data-lang="en">fit</small></div><div class="meta" data-lang="pt">gancho · 2 pessoas · celular</div><div class="meta" data-lang="en">hook · 2 people · phone</div></div>
+              <div class="trend"><div><span class="badge" data-lang="pt">saturando</span><span class="badge" data-lang="en">saturating</span><strong data-lang="pt">Áudio em alta da semana</strong><strong data-lang="en">This week's trending audio</strong></div><div class="fit">41<small data-lang="pt">encaixe</small><small data-lang="en">fit</small></div><div class="meta" data-lang="pt">som · vale até sexta</div><div class="meta" data-lang="en">audio · good until Friday</div></div>
+            </div>
+          </div>
+        </div>
+        <p class="caption" data-lang="pt">Exemplo ilustrativo, com dados fictícios.</p>
+        <p class="caption" data-lang="en">Illustrative example with fictional data.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <p class="eyebrow"><span data-lang="pt">Integrações previstas</span><span data-lang="en">Planned integrations</span></p>
+    <div class="marquee" aria-hidden="true">
+      <span><i class="ic" style="--src:url(icons/instagram.svg)"></i>Instagram</span><span><i class="ic" style="--src:url(icons/tiktok.svg)"></i>TikTok</span><span><i class="ic" style="--src:url(icons/youtube.svg)"></i>YouTube</span><span><i class="tx">in</i>LinkedIn</span><span><i class="ic" style="--src:url(icons/facebook.svg)"></i>Facebook</span><span><i class="ic" style="--src:url(icons/threads.svg)"></i>Threads</span><span><i class="ic" style="--src:url(icons/x.svg)"></i>X</span><span><i class="ic" style="--src:url(icons/pinterest.svg)"></i>Pinterest</span><span><i class="ic" style="--src:url(icons/googlemaps.svg)"></i>Google Business</span><span><i class="ic" style="--src:url(icons/canva.svg)"></i>Canva</span><span><i class="ic" style="--src:url(icons/googledrive.svg)"></i>Google Drive</span><span><i class="ic" style="--src:url(icons/claude.svg)"></i>Claude</span><span><i class="ic" style="--src:url(icons/meta.svg)"></i>Meta Ads</span><span><i class="ic" style="--src:url(icons/googleads.svg)"></i>Google Ads</span>
+      <span><i class="ic" style="--src:url(icons/instagram.svg)"></i>Instagram</span><span><i class="ic" style="--src:url(icons/tiktok.svg)"></i>TikTok</span><span><i class="ic" style="--src:url(icons/youtube.svg)"></i>YouTube</span><span><i class="tx">in</i>LinkedIn</span><span><i class="ic" style="--src:url(icons/facebook.svg)"></i>Facebook</span><span><i class="ic" style="--src:url(icons/threads.svg)"></i>Threads</span><span><i class="ic" style="--src:url(icons/x.svg)"></i>X</span><span><i class="ic" style="--src:url(icons/pinterest.svg)"></i>Pinterest</span><span><i class="ic" style="--src:url(icons/googlemaps.svg)"></i>Google Business</span><span><i class="ic" style="--src:url(icons/canva.svg)"></i>Canva</span><span><i class="ic" style="--src:url(icons/googledrive.svg)"></i>Google Drive</span><span><i class="ic" style="--src:url(icons/claude.svg)"></i>Claude</span><span><i class="ic" style="--src:url(icons/meta.svg)"></i>Meta Ads</span><span><i class="ic" style="--src:url(icons/googleads.svg)"></i>Google Ads</span>
+    </div>
+  </div>
+
+  <section id="como">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span data-lang="pt">Por que serviço, e não ferramenta</span><span data-lang="en">Why a service, not a tool</span></p>
+        <h2 style="margin-top:14px" data-lang="pt">Você compra o <span class="mk mk-u">resultado</span>. O software trabalha por trás.</h2>
+        <h2 style="margin-top:14px" data-lang="en">You buy the <span class="mk mk-u">outcome</span>. The software works behind it.</h2>
+        <p data-lang="pt">Conteúdo para redes já é um trabalho que as marcas terceirizam. A Rize entrega esse mesmo serviço, com a parte repetitiva feita por agentes de IA. Cada melhoria da IA deixa o serviço mais rápido, e cada ajuste do time ensina os agentes a acertar mais.</p>
+        <p data-lang="en">Social content is work brands already outsource. Rize delivers that same service, with the repetitive part done by AI agents. Every AI improvement makes the service faster, and every team correction teaches the agents to get it right.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal"><span class="n">01</span><h3 data-lang="pt">Agentes no repetitivo</h3><h3 data-lang="en">Agents on repetitive work</h3><p data-lang="pt">Monitorar sinais, analisar o que performa, escrever roteiros, preparar aprovações e publicar.</p><p data-lang="en">Monitoring signals, analyzing what performs, writing scripts, preparing approvals and publishing.</p></div>
+        <div class="pillar reveal"><span class="n">02</span><h3 data-lang="pt">Pessoas no julgamento</h3><h3 data-lang="en">People on judgement</h3><p data-lang="pt">Estratégia, voz da marca e decisões ficam com o time da Rize. Tudo que um agente faz pode ser ajustado ou desfeito.</p><p data-lang="en">Strategy, brand voice and decisions stay with the Rize team. Anything an agent does can be adjusted or undone.</p></div>
+        <div class="pillar reveal"><span class="n">03</span><h3 data-lang="pt">A marca no controle</h3><h3 data-lang="en">The brand in control</h3><p data-lang="pt">Nada vai ao ar sem a aprovação da marca. Depois que ela aprova, os agentes agendam, publicam e ativam as automações.</p><p data-lang="en">Nothing goes live without the brand's approval. Once approved, agents schedule, publish and switch on automations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modulos" style="padding-top:40px">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span data-lang="pt">Módulos</span><span data-lang="en">Modules</span></p>
+        <h2 style="margin-top:14px" data-lang="pt">Do sinal ao post publicado</h2>
+        <h2 style="margin-top:14px" data-lang="en">From signal to published post</h2>
+      </div>
+
+      <div class="feature">
+        <div class="copy reveal">
+          <p class="eyebrow">01 · <span data-lang="pt">Trends e inspiração</span><span data-lang="en">Trends and inspiration</span></p>
+          <h3 style="margin-top:10px;font-size:34px" data-lang="pt">O que está funcionando hoje, com o encaixe para cada marca</h3>
+          <h3 style="margin-top:10px;font-size:34px" data-lang="en">What's working today, with the fit for each brand</h3>
+          <ul data-lang="pt"><li>Monitoramento diário de sinais e alertas no setor da marca</li><li>Posts que vão muito acima da média do criador, analisados por IA</li><li>Gancho reutilizável, formato e esforço para gravar</li></ul>
+          <ul data-lang="en"><li>Daily signal monitoring and alerts in the brand's sector</li><li>Posts far above the creator's usual results, analyzed by AI</li><li>Reusable hook, format and production effort</li></ul>
+          <p class="instead"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">horas rolando o feed e bibliotecas genéricas</span><span data-lang="en">hours of scrolling and generic libraries</span></p>
+        </div>
+        <div class="reveal">
+          <div class="app" role="img" aria-label="Exemplo ilustrativo de análise de post">
+            <div class="bar"><i></i><i></i><i></i><span data-lang="pt">Inspiração · análise</span><span data-lang="en">Inspiration · analysis</span></div>
+            <div class="log">
+              <div class="row"><span class="who" data-lang="pt">Gancho</span><span class="who" data-lang="en">Hook</span><span data-lang="pt">"Quem é mais provável de [ação] [situação]"</span><span data-lang="en">"Who's most likely to [action] [situation]"</span><span class="st done">36×</span></div>
+              <div class="row"><span class="who" data-lang="pt">Formato</span><span class="who" data-lang="en">Format</span><span data-lang="pt">Comparação · 2 pessoas · humor</span><span data-lang="en">Comparison · 2 people · humor</span><span class="st" data-lang="pt">esforço baixo</span><span class="st" data-lang="en">low effort</span></div>
+              <div class="row"><span class="who" data-lang="pt">Encaixe</span><span class="who" data-lang="en">Fit</span><span data-lang="pt">Topo de funil, combina com o público</span><span data-lang="en">Top of funnel, matches the audience</span><span class="st done">82</span></div>
+              <div class="row"><span class="who" data-lang="pt">Adaptação</span><span class="who" data-lang="en">Adaptation</span><span data-lang="pt">Roteiro na voz da marca pronto</span><span data-lang="en">Script in the brand's voice ready</span><span class="st" data-lang="pt">gerar</span><span class="st" data-lang="en">generate</span></div>
+            </div>
+          </div>
+          <p class="caption" data-lang="pt">Exemplo ilustrativo, com dados fictícios.</p><p class="caption" data-lang="en">Illustrative example with fictional data.</p>
+        </div>
+      </div>
+
+      <div class="feature flip">
+        <div class="copy reveal">
+          <p class="eyebrow">02 · <span data-lang="pt">Planejamento e aprovação</span><span data-lang="en">Planning and approval</span></p>
+          <h3 style="margin-top:10px;font-size:34px" data-lang="pt">A marca aprova o mês olhando o feed, como no Instagram</h3>
+          <h3 style="margin-top:10px;font-size:34px" data-lang="en">The brand approves the month looking at the feed, like on Instagram</h3>
+          <ul data-lang="pt"><li>Cérebro de cada marca: público, voz, regras e capacidade de produção</li><li>Pauta e roteiros escritos pelos agentes e revisados pelo time</li><li>Comentários, pedidos de ajuste e aprovação num clique</li></ul>
+          <ul data-lang="en"><li>Each brand's brain: audience, voice, rules and production capacity</li><li>Plans and scripts written by agents, reviewed by the team</li><li>Comments, change requests and one-click approval</li></ul>
+          <p class="instead"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">planilhas, prints e aprovações por mensagem</span><span data-lang="en">spreadsheets, screenshots and approvals by message</span></p>
+        </div>
+        <div class="reveal">
+          <div class="app" role="img" aria-label="Exemplo ilustrativo da prévia do feed">
+            <div class="bar"><i></i><i></i><i></i><span data-lang="pt">Prévia do feed · novembro</span><span data-lang="en">Feed preview · November</span></div>
+            <div class="feed">
+              <div class="profile"><div class="avatar">M</div><div><strong data-lang="pt">@marcaexemplo</strong><strong data-lang="en">@samplebrand</strong><span data-lang="pt">9 posts planejados</span><span data-lang="en">9 planned posts</span></div></div>
+              <div class="grid9">
+                <div class="tile"><span class="st" data-lang="pt">aprovado</span><span class="st" data-lang="en">approved</span></div><div class="tile"><span class="st" data-lang="pt">aprovado</span><span class="st" data-lang="en">approved</span></div><div class="tile"><span class="st" data-lang="pt">ajuste</span><span class="st" data-lang="en">change</span></div>
+                <div class="tile"><span class="st" data-lang="pt">aguardando</span><span class="st" data-lang="en">pending</span></div><div class="tile"><span class="st" data-lang="pt">aprovado</span><span class="st" data-lang="en">approved</span></div><div class="tile"><span class="st" data-lang="pt">aguardando</span><span class="st" data-lang="en">pending</span></div>
+                <div class="tile"></div><div class="tile"></div><div class="tile"></div>
+              </div>
+              <div class="comment"><span data-lang="pt">"Troca a frase do 3º slide?" · cliente</span><span data-lang="en">"Can you change slide 3's line?" · client</span><span class="ok" data-lang="pt">Aprovar mês</span><span class="ok" data-lang="en">Approve month</span></div>
+            </div>
+          </div>
+          <p class="caption" data-lang="pt">Exemplo ilustrativo, com dados fictícios.</p><p class="caption" data-lang="en">Illustrative example with fictional data.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="copy reveal">
+          <p class="eyebrow">03 · <span data-lang="pt">Publicação e automação</span><span data-lang="en">Publishing and automation</span></p>
+          <h3 style="margin-top:10px;font-size:34px" data-lang="pt">Aprovou, os agentes agendam, publicam e ligam a automação</h3>
+          <h3 style="margin-top:10px;font-size:34px" data-lang="en">Once approved, agents schedule, publish and switch on automation</h3>
+          <ul data-lang="pt"><li>Agendamento no melhor horário de cada rede</li><li>Automação de comentário para DM pronta junto com o post</li><li>Métricas por marca e relatório do mês enviado à cliente</li></ul>
+          <ul data-lang="en"><li>Scheduling at each network's best time</li><li>Comment-to-DM automation ready with the post</li><li>Metrics per brand and a monthly report sent to the client</li></ul>
+          <p class="instead"><b><span data-lang="pt">No lugar de</span><span data-lang="en">Instead of</span></b><span data-lang="pt">várias ferramentas de agendamento, automação e relatório</span><span data-lang="en">several scheduling, automation and reporting tools</span></p>
+        </div>
+        <div class="reveal">
+          <div class="app" role="img" aria-label="Exemplo ilustrativo do registro dos agentes">
+            <div class="bar"><i></i><i></i><i></i><span data-lang="pt">Agentes · hoje</span><span data-lang="en">Agents · today</span></div>
+            <div class="log">
+              <div class="row"><span class="who">Monitor</span><span data-lang="pt">3 trends novas para a marca</span><span data-lang="en">3 new trends for the brand</span><span class="st done" data-lang="pt">feito</span><span class="st done" data-lang="en">done</span></div>
+              <div class="row"><span class="who" data-lang="pt">Roteirista</span><span class="who" data-lang="en">Writer</span><span data-lang="pt">2 roteiros na voz da marca</span><span data-lang="en">2 scripts in the brand's voice</span><span class="st done" data-lang="pt">feito</span><span class="st done" data-lang="en">done</span></div>
+              <div class="row"><span class="who" data-lang="pt">Aprovações</span><span class="who" data-lang="en">Approvals</span><span data-lang="pt">Mês enviado para a cliente</span><span data-lang="en">Month sent to the client</span><span class="st" data-lang="pt">aguardando</span><span class="st" data-lang="en">waiting</span></div>
+              <div class="row"><span class="who" data-lang="pt">Publicação</span><span class="who" data-lang="en">Publishing</span><span data-lang="pt">Post agendado + automação de DM</span><span data-lang="en">Post scheduled + DM automation</span><span class="st done" data-lang="pt">feito</span><span class="st done" data-lang="en">done</span></div>
+              <div class="row"><span class="who" data-lang="pt">Operação</span><span class="who" data-lang="en">Operations</span><span data-lang="pt">Orçamento de IA em 42%</span><span data-lang="en">AI budget at 42%</span><span class="st">ok</span></div>
+            </div>
+          </div>
+          <p class="caption" data-lang="pt">Exemplo ilustrativo, com dados fictícios.</p><p class="caption" data-lang="en">Illustrative example with fictional data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="integracoes" style="padding-top:40px">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span data-lang="pt">Integrações</span><span data-lang="en">Integrations</span></p>
+        <h2 style="margin-top:14px" data-lang="pt">Conectado onde a sua marca está</h2>
+        <h2 style="margin-top:14px" data-lang="en">Connected where your brand lives</h2>
+        <p data-lang="pt">As integrações entram por etapas, junto com cada módulo. A publicação usa as APIs oficiais de cada rede.</p>
+        <p data-lang="en">Integrations arrive in stages, alongside each module. Publishing uses each network's official API.</p>
+      </div>
+      <div class="ints">
+        <div class="int reveal"><h3 data-lang="pt">Redes sociais</h3><h3 data-lang="en">Social networks</h3><p data-lang="pt">publicação, métricas e automação</p><p data-lang="en">publishing, metrics and automation</p>
+          <ul><li><i class="ic" style="--src:url(icons/instagram.svg)"></i>Instagram</li><li><i class="ic" style="--src:url(icons/facebook.svg)"></i>Facebook</li><li><i class="ic" style="--src:url(icons/tiktok.svg)"></i>TikTok</li><li><i class="ic" style="--src:url(icons/youtube.svg)"></i>YouTube</li><li><i class="tx">in</i>LinkedIn</li><li><i class="ic" style="--src:url(icons/threads.svg)"></i>Threads</li><li><i class="ic" style="--src:url(icons/x.svg)"></i>X</li><li><i class="ic" style="--src:url(icons/pinterest.svg)"></i>Pinterest</li><li><i class="ic" style="--src:url(icons/googlemaps.svg)"></i>Google Business Profile</li></ul></div>
+        <div class="int reveal"><h3 data-lang="pt">Criação e arquivos</h3><h3 data-lang="en">Creation and files</h3><p data-lang="pt">artes, vídeos e materiais</p><p data-lang="en">graphics, videos and files</p>
+          <ul><li><i class="ic" style="--src:url(icons/canva.svg)"></i>Canva</li><li><i class="ic" style="--src:url(icons/googledrive.svg)"></i>Google Drive</li></ul></div>
+        <div class="int reveal"><h3 data-lang="pt">IA e dados</h3><h3 data-lang="en">AI and data</h3><p data-lang="pt">análise, coleta e conexão com o Claude</p><p data-lang="en">analysis, collection and Claude connection</p>
+          <ul><li><i class="ic" style="--src:url(icons/claude.svg)"></i>Claude</li><li><i class="ic" style="--src:url(icons/modelcontextprotocol.svg)"></i>MCP</li><li><i class="tx">A</i>Apify</li></ul></div>
+        <div class="int reveal"><h3 data-lang="pt">Anúncios</h3><h3 data-lang="en">Ads</h3><p data-lang="pt">acompanhamento de campanhas</p><p data-lang="en">campaign tracking</p>
+          <ul><li><i class="ic" style="--src:url(icons/meta.svg)"></i>Meta Ads</li><li><i class="ic" style="--src:url(icons/googleads.svg)"></i>Google Ads</li><li><i class="ic" style="--src:url(icons/tiktok.svg)"></i>TikTok Ads</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo" style="padding-top:40px">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span data-lang="pt">O que fazemos e como</span><span data-lang="en">What we do and how</span></p>
+        <h2 style="margin-top:14px" data-lang="pt">Um processo único para todas as marcas</h2>
+        <h2 style="margin-top:14px" data-lang="en">One process for every brand</h2>
+      </div>
+      <div class="services reveal">
+        <div class="svc"><b data-lang="pt">Estratégia</b><b data-lang="en">Strategy</b><span data-lang="pt">gestão e relacionamento com as clientes</span><span data-lang="en">client management and relationship</span></div>
+        <div class="svc"><b>Design</b><span data-lang="pt">artes e carrosséis</span><span data-lang="en">graphics and carousels</span></div>
+        <div class="svc"><b>Social media</b><span data-lang="pt">copys, calendário e agendamento</span><span data-lang="en">copy, calendar and scheduling</span></div>
+        <div class="svc"><b data-lang="pt">Edição de vídeo</b><b data-lang="en">Video editing</b><span data-lang="pt">reels e cortes</span><span data-lang="en">reels and cuts</span></div>
+        <div class="svc"><b>Landing pages</b><span data-lang="pt">páginas e produtos digitais</span><span data-lang="en">pages and digital products</span></div>
+      </div>
+      <div class="phases" style="margin-top:16px">
+        <div class="phase reveal"><p class="eyebrow"><span data-lang="pt">Início da parceria</span><span data-lang="en">Getting started</span></p>
+          <ol>
+            <li><div><b data-lang="pt">Entrada da marca</b><b data-lang="en">Onboarding</b><span data-lang="pt">briefing, acessos, materiais e onboarding em até 3 dias</span><span data-lang="en">briefing, access, files and onboarding within 3 days</span></div></li>
+            <li><div><b data-lang="pt">Pesquisa e análise</b><b data-lang="en">Research and analysis</b><span data-lang="pt">propósito, tom de voz, concorrentes, tendências, SWOT e persona</span><span data-lang="en">purpose, tone of voice, competitors, trends, SWOT and persona</span></div></li>
+            <li><div><b data-lang="pt">Estratégia de conteúdo</b><b data-lang="en">Content strategy</b><span data-lang="pt">estrutura da estratégia e linha editorial</span><span data-lang="en">strategy structure and editorial line</span></div></li>
+            <li><div><b data-lang="pt">Apresentação</b><b data-lang="en">Presentation</b><span data-lang="pt">reunião, feedback e ajustes</span><span data-lang="en">meeting, feedback and adjustments</span></div></li>
+          </ol></div>
+        <div class="phase reveal"><p class="eyebrow"><span data-lang="pt">Todo mês</span><span data-lang="en">Every month</span></p>
+          <ol>
+            <li><div><b data-lang="pt">Planejamento e criação</b><b data-lang="en">Planning and creation</b><span data-lang="pt">pauta e cronograma do mês seguinte</span><span data-lang="en">next month's plan and schedule</span></div></li>
+            <li><div><b data-lang="pt">Design e vídeo</b><b data-lang="en">Design and video</b><span data-lang="pt">artes e vídeos na identidade da marca</span><span data-lang="en">graphics and videos in the brand identity</span></div></li>
+            <li><div><b data-lang="pt">Revisão e aprovação</b><b data-lang="en">Review and approval</b><span data-lang="pt">a marca aprova antes de qualquer publicação</span><span data-lang="en">the brand approves before anything is published</span></div></li>
+            <li><div><b data-lang="pt">Publicação e métricas</b><b data-lang="en">Publishing and metrics</b><span data-lang="pt">agendamento, resultados e melhoria contínua</span><span data-lang="en">scheduling, results and continuous improvement</span></div></li>
+          </ol></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:40px">
+    <div class="wrap">
+      <div class="head center" style="text-align:center">
+        <p class="eyebrow"><span data-lang="pt">Confiança</span><span data-lang="en">Trust</span></p>
+        <h2 style="margin-top:14px" data-lang="pt">Autonomia com a pessoa no comando</h2>
+        <h2 style="margin-top:14px" data-lang="en">Autonomy with people in charge</h2>
+      </div>
+      <div class="trust">
+        <div class="pillar reveal"><h3 data-lang="pt">Edição humana prevalece</h3><h3 data-lang="en">Human edits win</h3><p data-lang="pt">O que o time ajusta fica travado para os agentes. Histórico de versões e botão de desfazer em tudo.</p><p data-lang="en">What the team adjusts is locked for agents. Version history and undo on everything.</p></div>
+        <div class="pillar reveal"><h3 data-lang="pt">Cada marca isolada</h3><h3 data-lang="en">Each brand isolated</h3><p data-lang="pt">Dados separados no próprio banco, verificação em duas etapas para o time e exportação ou exclusão a pedido (LGPD).</p><p data-lang="en">Data separated in the database itself, two-step verification for the team and export or deletion on request (LGPD).</p></div>
+        <div class="pillar reveal"><h3 data-lang="pt">Custo sob controle</h3><h3 data-lang="en">Cost under control</h3><p data-lang="pt">Orçamento de IA por marca, com alertas em 50, 80 e 100% e pausa automática.</p><p data-lang="en">AI budget per brand, with alerts at 50, 80 and 100% and automatic pause.</p></div>
+      </div>
+      <div class="status">
+        <span class="pill done" data-lang="pt">✓ Fundação concluída</span><span class="pill done" data-lang="en">✓ Foundation complete</span>
+        <span class="pill" data-lang="pt">Inspiração · próxima</span><span class="pill" data-lang="en">Inspiration · next</span>
+        <span class="pill" data-lang="pt">Trends · conteúdo · automação · publicação</span><span class="pill" data-lang="en">Trends · content · automation · publishing</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="rize" style="padding-top:40px">
+    <div class="wrap about">
+      <div class="reveal">
+        <p class="eyebrow">Rize Marketing</p>
+        <h2 style="margin-top:14px">Somos a <span class="mk mk-h">Rize</span>.</h2>
+        <p style="margin-top:16px" data-lang="pt">Estruturamos negócios antes de fazer marketing, para transformar marcas e negócios em ecossistemas vivos e consistentes, que se conectam com o propósito da marca para alcançar o seu objetivo. O Rize Studio é como fazemos isso em escala.</p>
+        <p style="margin-top:16px" data-lang="en">We structure businesses before doing marketing, turning brands and businesses into living, consistent ecosystems that connect with the brand's purpose to reach its goals. Rize Studio is how we do that at scale.</p>
+      </div>
+      <img class="reveal" src="logo-rize.png" alt="Rize Marketing" width="360" height="220">
+    </div>
+  </section>
+
+  <section id="perguntas" style="padding-top:40px">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow"><span data-lang="pt">Perguntas</span><span data-lang="en">FAQ</span></p><h2 style="margin-top:14px" data-lang="pt">Perguntas frequentes</h2><h2 style="margin-top:14px" data-lang="en">Frequently asked questions</h2></div>
       <details><summary><span data-lang="pt">O Rize Studio é vendido como ferramenta?</span><span data-lang="en">Is Rize Studio sold as a tool?</span></summary><p data-lang="pt">Não. A Rize vende o serviço de conteúdo; o Rize Studio é o software que usamos para entregar esse serviço com mais velocidade e consistência.</p><p data-lang="en">No. Rize sells the content service; Rize Studio is the software we use to deliver it faster and more consistently.</p></details>
       <details><summary><span data-lang="pt">A IA publica sozinha?</span><span data-lang="en">Does the AI publish on its own?</span></summary><p data-lang="pt">Só depois que a marca aprova. Antes disso, os agentes preparam, sugerem e revisam, e qualquer pessoa do time pode ajustar ou desfazer o que eles fizeram.</p><p data-lang="en">Only after the brand approves. Before that, agents prepare, suggest and review, and anyone on the team can adjust or undo what they did.</p></details>
-      <details><summary><span data-lang="pt">Os dados das marcas ficam separados?</span><span data-lang="en">Is each brand’s data kept separate?</span></summary><p data-lang="pt">Sim. Cada marca é isolada no próprio banco de dados, o acesso do time exige verificação em duas etapas e cada marca pode pedir a exportação ou a exclusão dos seus dados (LGPD).</p><p data-lang="en">Yes. Each brand is isolated in the database itself, team access requires two-step verification, and each brand can request export or deletion of its data (LGPD).</p></details>
-      <details><summary><span data-lang="pt">Quando fica pronto?</span><span data-lang="en">When will it be ready?</span></summary><p data-lang="pt">Por módulos. A fundação (acesso, marcas, custos e agentes) está concluída; inspiração, trends, conteúdo, automação e publicação vêm em seguida.</p><p data-lang="en">Module by module. The foundation (access, brands, costs and agents) is done; inspiration, trends, content, automation and publishing come next.</p></details>
-    </section>
+      <details><summary><span data-lang="pt">Os dados da minha marca ficam separados?</span><span data-lang="en">Is my brand's data kept separate?</span></summary><p data-lang="pt">Sim. Cada marca é isolada no próprio banco de dados, o acesso do time exige verificação em duas etapas e a marca pode pedir a exportação ou a exclusão dos seus dados (LGPD).</p><p data-lang="en">Yes. Each brand is isolated in the database itself, team access requires two-step verification, and the brand can request export or deletion of its data (LGPD).</p></details>
+      <details><summary><span data-lang="pt">Em quais redes vocês publicam?</span><span data-lang="en">Which networks do you publish to?</span></summary><p data-lang="pt">A lista prevista inclui Instagram, Facebook, TikTok, YouTube, LinkedIn, Threads, X, Pinterest e Google Business Profile. Elas entram por etapas, usando as APIs oficiais.</p><p data-lang="en">The planned list includes Instagram, Facebook, TikTok, YouTube, LinkedIn, Threads, X, Pinterest and Google Business Profile. They arrive in stages, using official APIs.</p></details>
+      <details><summary><span data-lang="pt">Quando o Rize Studio fica pronto?</span><span data-lang="en">When will Rize Studio be ready?</span></summary><p data-lang="pt">Por módulos. A fundação (acesso, marcas, custos e agentes) está concluída; inspiração, trends, conteúdo, automação e publicação vêm em seguida.</p><p data-lang="en">Module by module. The foundation (access, brands, costs and agents) is done; inspiration, trends, content, automation and publishing come next.</p></details>
+    </div>
+  </section>
 
-    <section class="final">
-      <h2 data-lang="pt">Quer conteúdo feito <span class="mk mk-u">assim</span> para a sua marca?</h2>
-      <h2 data-lang="en">Want content made <span class="mk mk-u">this way</span> for your brand?</h2>
-      <a class="cta" href="mailto:rizeagenciamkt@gmail.com"><span data-lang="pt">Fale com a Rize</span><span data-lang="en">Talk to Rize</span></a>
-    </section>
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <div class="final reveal">
+        <h2 data-lang="pt">Quer conteúdo feito <span class="mk mk-u">assim</span> para a sua marca?</h2>
+        <h2 data-lang="en">Want content made <span class="mk mk-u">this way</span> for your brand?</h2>
+        <p data-lang="pt">Conte para a gente sobre a sua marca e o seu momento. Respondemos por e-mail.</p>
+        <p data-lang="en">Tell us about your brand and where it is today. We reply by email.</p>
+        <div class="actions"><a class="btn primary" href="mailto:rizeagenciamkt@gmail.com"><span data-lang="pt">Fale com a Rize</span><span data-lang="en">Talk to Rize</span> →</a></div>
+      </div>
+    </div>
+  </section>
+</main>
 
-  </main>
-</div>
 <footer>
   <div class="wrap">
-    <span>© 2026 Rize · São Paulo, Brasil</span>
-    <span><span data-lang="pt">Contato</span><span data-lang="en">Contact</span>: <a href="mailto:rizeagenciamkt@gmail.com">rizeagenciamkt@gmail.com</a></span>
+    <div><img src="logo-rize.png" alt="Rize Marketing" width="360" height="220"><p data-lang="pt">Serviço de conteúdo que funciona como software.</p><p data-lang="en">Content service that works as software.</p><p style="margin-top:12px">© 2026 Rize · São Paulo, Brasil</p></div>
+    <div><h4 data-lang="pt">Navegação</h4><h4 data-lang="en">Navigation</h4><a href="#como"><span data-lang="pt">Como funciona</span><span data-lang="en">How it works</span></a><a href="#modulos"><span data-lang="pt">Módulos</span><span data-lang="en">Modules</span></a><a href="#integracoes"><span data-lang="pt">Integrações</span><span data-lang="en">Integrations</span></a><a href="#perguntas"><span data-lang="pt">Perguntas</span><span data-lang="en">FAQ</span></a></div>
+    <div><h4 data-lang="pt">Contato</h4><h4 data-lang="en">Contact</h4><a href="mailto:rizeagenciamkt@gmail.com">rizeagenciamkt@gmail.com</a><p>Rua Pedroso Alvarenga, 1004 · Itaim Bibi · São Paulo, SP</p></div>
   </div>
 </footer>
+
 <script>
   const root=document.documentElement;
-  function setLang(l){root.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.set===l));try{localStorage.setItem('lang',l)}catch(e){}}
+  const NS='http://www.w3.org/2000/svg';
+  let seed=7;const r=a=>{seed=(seed*9301+49297)%233280;return(seed/233280-.5)*2*a};
+  const line=(x1,y1,x2,y2,j)=>{let d='M'+x1+' '+y1;for(let i=1;i<=8;i++){const t=i/8;d+=' L'+(x1+(x2-x1)*t+r(j)).toFixed(1)+' '+(y1+(y2-y1)*t+r(j)).toFixed(1)}return d};
+  function svg(el,w,h){const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 '+w+' '+h);s.setAttribute('width',w);s.setAttribute('height',h);el.appendChild(s);return s}
+  function path(s,d,w){const p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('stroke-width',w);s.appendChild(p);p.style.setProperty('--len',p.getTotalLength())}
+  function mark(el){const w=el.offsetWidth,h=el.offsetHeight;if(!w||el.dataset.done)return;el.dataset.done=1;
+    if(el.classList.contains('mk-u')){const s=svg(el,w+8,14);s.style.left='-4px';s.style.bottom='-10px';path(s,line(2,8,w+6,6,1.6),3)}
+    else if(el.classList.contains('mk-c')){const s=svg(el,w+28,h+18);s.style.left='-14px';s.style.top='-9px';const cx=(w+28)/2,cy=(h+18)/2;let d='';for(let i=0;i<=40;i++){const a=-1.9+i/40*Math.PI*2.15;d+=(i?' L':'M')+(cx+Math.cos(a)*(cx-3+r(1.5))).toFixed(1)+' '+(cy+Math.sin(a)*(cy-3+r(1.5))).toFixed(1)}path(s,d,2.6)}
+    else{const s=svg(el,w+10,h);s.style.left='-5px';s.style.top='0';path(s,line(0,h*.62,w+10,h*.62-2,2),h*.42)}
+    el.classList.add('draw')}
+  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;if(t.classList.contains('mk'))mark(t);requestAnimationFrame(()=>requestAnimationFrame(()=>t.classList.add('on')));io.unobserve(t)}),{threshold:.2}):null;
+  function scan(){document.querySelectorAll('.mk,.reveal').forEach(el=>{if(el.offsetParent===null||el.dataset.seen)return;el.dataset.seen=1;if(io)io.observe(el);else{if(el.classList.contains('mk'))mark(el);el.classList.add('on')}})}
+  function setLang(l){root.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.set===l));try{localStorage.setItem('lang',l)}catch(e){};requestAnimationFrame(scan)}
   document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.set)));
   try{const s=localStorage.getItem('lang');if(s)setLang(s)}catch(e){}
-
-  // Traços desenhados à mão: gera linhas levemente tortas e anima como caneta ao aparecer na tela.
-  (function(){
-    const NS='http://www.w3.org/2000/svg';
-    let seed=7; const r=(a)=>{seed=(seed*9301+49297)%233280;return (seed/233280-.5)*2*a};
-    const line=(x1,y1,x2,y2,j)=>{const n=8;let d='M'+x1.toFixed(1)+' '+y1.toFixed(1);for(let i=1;i<=n;i++){const t=i/n;d+=' L'+(x1+(x2-x1)*t+r(j)).toFixed(1)+' '+(y1+(y2-y1)*t+r(j)).toFixed(1)}return d};
-    function svgFor(el,w,h){const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 '+w+' '+h);s.setAttribute('width',w);s.setAttribute('height',h);el.appendChild(s);return s}
-    function add(s,d,width){const p=document.createElementNS(NS,'path');p.setAttribute('d',d);if(width)p.setAttribute('stroke-width',width);s.appendChild(p);const L=p.getTotalLength();p.style.setProperty('--len',L);return p}
-    function decorate(el){
-      if(el.dataset.done)return; const w=el.offsetWidth,h=el.offsetHeight; if(!w)return; el.dataset.done=1;
-      if(el.classList.contains('mk-u')){const s=svgFor(el,w+8,14);s.style.left='-4px';s.style.bottom='-10px';add(s,line(2,8,w+6,6,1.6),3)}
-      else if(el.classList.contains('mk-c')){const s=svgFor(el,w+28,h+18);s.style.left='-14px';s.style.top='-9px';const cx=(w+28)/2,cy=(h+18)/2,rx=cx-3,ry=cy-3;let d='';for(let i=0;i<=40;i++){const a=-1.9+i/40*Math.PI*2.15;const x=cx+Math.cos(a)*(rx+r(1.5)),y=cy+Math.sin(a)*(ry+r(1.5));d+=(i?' L':'M')+x.toFixed(1)+' '+y.toFixed(1)}add(s,d,2.6)}
-      else if(el.classList.contains('mk-h')){const s=svgFor(el,w+10,h);s.style.left='-5px';s.style.top='0';const t=h*.62;add(s,line(0,t,w+10,t-2,2),h*.42)}
-      else if(el.classList.contains('sketch')){const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 '+(w+6)+' '+(h+6));s.setAttribute('preserveAspectRatio','none');el.appendChild(s);const W=w+3,H=h+3;add(s,line(3,3,W,4,1.2)+' '+line(W,4,W-1,H,1.2).replace('M','L')+' '+line(W-1,H,4,H-1,1.2).replace('M','L')+' '+line(4,H-1,3,3,1.2).replace('M','L'))}
-      else if(el.classList.contains('tick')){const s=svgFor(el,16,14);add(s,'M1 8 L6 12 L15 1')}
-      el.classList.add('draw');
-    }
-    const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){decorate(e.target);requestAnimationFrame(()=>requestAnimationFrame(()=>e.target.classList.add('on')));io.unobserve(e.target)}}),{threshold:.4}):null;
-    function scan(){document.querySelectorAll('.mk,.sketch,.tick').forEach((el,i)=>{if(el.offsetParent===null||el.dataset.done)return;el.style.setProperty('--delay',(el.classList.contains('sketch')?(i%5)*90:250)+'ms');if(io)io.observe(el);else{decorate(el);el.classList.add('on')}})}
-    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(scan);else scan();
-    document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setTimeout(scan,30)));
-  })();
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(scan);
 </script>
 </body>
 </html>
