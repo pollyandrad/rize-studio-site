@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rize Studio</title>
+<meta name="description" content="Rize Studio: plataforma da agência Rize que une trends, inspiração, produção de conteúdo, automação e agentes de IA para marcas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0b0b0c;--card:#141416;--line:#25252a;--text:#f4f4f5;--muted:#a1a1aa;--accent:#c6f25e}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+  .logo{font:600 20px "Inter Tight",sans-serif;letter-spacing:-.02em}
+  .logo span{color:var(--accent)}
+  .lang{display:flex;gap:4px;border:1px solid var(--line);border-radius:999px;padding:4px}
+  .lang button{background:none;border:0;color:var(--muted);font:500 13px Inter;padding:6px 12px;border-radius:999px;cursor:pointer}
+  .lang button.on{background:var(--text);color:var(--bg)}
+  .hero{padding:72px 0 56px}
+  .tag{display:inline-block;font-size:13px;color:var(--accent);border:1px solid #3a4a1c;border-radius:999px;padding:4px 12px;margin-bottom:24px}
+  h1{font:600 clamp(36px,6vw,64px)/1.05 "Inter Tight",sans-serif;letter-spacing:-.03em;max-width:820px}
+  .lead{color:var(--muted);font-size:clamp(17px,2vw,20px);max-width:680px;margin-top:20px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;padding:24px 0 72px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .card h3{font:600 18px "Inter Tight",sans-serif;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15px}
+  .num{color:var(--accent);font:600 13px Inter;margin-bottom:14px;display:block}
+  section h2{font:600 clamp(26px,3.5vw,36px)/1.15 "Inter Tight",sans-serif;letter-spacing:-.02em;margin-bottom:16px}
+  .block{border-top:1px solid var(--line);padding:56px 0}
+  .block p{color:var(--muted);max-width:720px}
+  .status{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+  .pill{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--muted)}
+  .pill.done{color:var(--text);border-color:#3a4a1c}
+  footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  a{color:var(--text)}
+  [data-lang]{display:none}
+  html[lang="pt-BR"] [data-lang="pt"],html[lang="en"] [data-lang="en"]{display:revert}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">Rize <span>Studio</span></div>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set="pt-BR" class="on">PT</button>
+      <button type="button" data-set="en">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="tag" data-lang="pt">Em desenvolvimento · por Rize</span>
+      <span class="tag" data-lang="en">In development · by Rize</span>
+      <h1 data-lang="pt">Trends, inspiração e conteúdo de marca, com agentes de IA trabalhando junto do time.</h1>
+      <h1 data-lang="en">Trends, inspiration and brand content, with AI agents working alongside the team.</h1>
+      <p class="lead" data-lang="pt">Rize Studio é a plataforma da agência Rize para encontrar o que está funcionando nas redes, adaptar para a voz de cada marca e levar do planejamento à aprovação, com custos controlados e a pessoa sempre no comando.</p>
+      <p class="lead" data-lang="en">Rize Studio is the Rize agency platform for finding what works on social media, adapting it to each brand's voice and taking it from planning to approval, with controlled costs and humans always in charge.</p>
+    </section>
+
+    <div class="grid">
+      <div class="card"><span class="num">01</span>
+        <h3 data-lang="pt">Trends de hoje</h3><h3 data-lang="en">Today's trends</h3>
+        <p data-lang="pt">Um agente monitora sinais todos os dias e mostra o que está surgindo, com o encaixe para cada marca.</p>
+        <p data-lang="en">An agent monitors signals every day and shows what is emerging, with the fit for each brand.</p></div>
+      <div class="card"><span class="num">02</span>
+        <h3 data-lang="pt">Inspiração analisada</h3><h3 data-lang="en">Analyzed inspiration</h3>
+        <p data-lang="pt">Posts que performam acima da média, analisados por IA: ideia, gancho, formato e o esforço para gravar.</p>
+        <p data-lang="en">Posts that outperform, analyzed by AI: idea, hook, format and the effort to produce them.</p></div>
+      <div class="card"><span class="num">03</span>
+        <h3 data-lang="pt">Na voz da marca</h3><h3 data-lang="en">In the brand's voice</h3>
+        <p data-lang="pt">Cada marca tem um perfil próprio. As adaptações respeitam público, mensagem, regras e capacidade de produção.</p>
+        <p data-lang="en">Each brand has its own profile. Adaptations respect audience, message, rules and production capacity.</p></div>
+      <div class="card"><span class="num">04</span>
+        <h3 data-lang="pt">Aprovação e automação</h3><h3 data-lang="en">Approval and automation</h3>
+        <p data-lang="pt">A marca aprova pela prévia do feed. Depois disso, agentes agendam, publicam e ativam as automações.</p>
+        <p data-lang="en">The brand approves through a feed preview. After that, agents schedule, publish and switch on automations.</p></div>
+    </div>
+
+    <section class="block">
+      <h2 data-lang="pt">Agentes autônomos, com a pessoa no controle</h2>
+      <h2 data-lang="en">Autonomous agents, with people in control</h2>
+      <p data-lang="pt">Os agentes fazem o trabalho do dia a dia sozinhos. Tudo o que fazem fica registrado, pode ser ajustado e desfeito, e uma edição humana nunca é sobrescrita. Cada marca tem orçamento próprio, com alertas e pausa automática.</p>
+      <p data-lang="en">Agents handle the day-to-day work on their own. Everything they do is logged, can be adjusted and undone, and a human edit is never overwritten. Each brand has its own budget, with alerts and automatic pause.</p>
+      <div class="status">
+        <span class="pill done" data-lang="pt">Fundação: concluída</span><span class="pill done" data-lang="en">Foundation: done</span>
+        <span class="pill" data-lang="pt">Inspiração: próxima etapa</span><span class="pill" data-lang="en">Inspiration: next</span>
+        <span class="pill" data-lang="pt">Trends, conteúdo, automação: em seguida</span><span class="pill" data-lang="en">Trends, content, automation: after that</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Rize · São Paulo, Brasil</span>
+    <span><span data-lang="pt">Contato</span><span data-lang="en">Contact</span>: <a href="mailto:rizeagenciamkt@gmail.com">rizeagenciamkt@gmail.com</a></span>
+  </footer>
+</div>
+<script>
+  const root=document.documentElement;
+  function setLang(l){root.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.set===l));try{localStorage.setItem('lang',l)}catch(e){}}
+  document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.set)));
+  try{const s=localStorage.getItem('lang');if(s)setLang(s)}catch(e){}
+</script>
+</body>
+</html>
