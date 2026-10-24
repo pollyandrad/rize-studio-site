@@ -7,11 +7,11 @@
 <meta name="description" content="Rize: uma agência de marketing que funciona como software. O Rize Studio, nossa plataforma com agentes de IA, entrega o trabalho de conteúdo das marcas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Josefin+Sans:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#545454;--card:#5b5b5b;--line:#6b6b6b;--text:#ede8ad;--muted:rgba(237,232,173,.72);--ink:#110910}
+  :root{--bg:#545454;--card:#5b5b5b;--line:#6b6b6b;--text:#ede8ad;--muted:rgba(237,232,173,.88);--ink:#110910}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--text);font:300 17px/1.65 "Josefin Sans",system-ui,sans-serif}
+  body{background:var(--bg);color:var(--text);font:400 17px/1.7 Inter,system-ui,sans-serif}
   .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
   header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
   .brand{display:flex;align-items:center;gap:14px}
@@ -27,7 +27,7 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;padding:24px 0 72px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
   .card h3{font:600 22px "Cormorant Garamond",serif;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:15px}
+  .card p{color:var(--muted);font-size:16px}
   .num{color:var(--text);font:600 12px "Josefin Sans";letter-spacing:.2em;margin-bottom:14px;display:block;opacity:.8}
   section h2{font:600 clamp(28px,3.6vw,40px)/1.12 "Cormorant Garamond",serif;margin-bottom:16px}
   .block{border-top:1px solid var(--line);padding:56px 0}
@@ -38,15 +38,15 @@
   .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
   .svc{border:1px solid var(--line);border-radius:12px;padding:18px}
   .svc b{display:block;font:600 20px "Cormorant Garamond",serif;margin-bottom:4px}
-  .svc span{color:var(--muted);font-size:14px}
+  .svc span{color:var(--muted);font-size:15px}
   .steps{list-style:none;counter-reset:s;display:grid;gap:10px;margin-top:20px}
   .steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;border-bottom:1px solid var(--line);padding:12px 0}
   .steps li::before{content:counter(s,decimal-leading-zero);font:600 13px "Josefin Sans";letter-spacing:.15em;opacity:.8;padding-top:4px}
   .steps b{font:600 20px "Cormorant Garamond",serif}
-  .steps span{display:block;color:var(--muted);font-size:15px}
+  .steps span{display:block;color:var(--muted);font-size:16px}
   .phase{font:600 12px "Josefin Sans";letter-spacing:.2em;text-transform:uppercase;margin-top:28px;opacity:.85}
   .status{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-  .pill{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--muted)}
+  .pill{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;color:var(--muted)}
   .pill.done{color:var(--ink);background:var(--text);border-color:var(--text)}
   footer{background:var(--ink);color:var(--muted);font-size:14px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:28px 20px 40px}
