@@ -147,6 +147,15 @@
   .tile:nth-child(3n+2){background:linear-gradient(135deg,#ede8ad,#d8d290)}
   .tile:nth-child(4n){background:linear-gradient(135deg,#6a6a6a,#4a4a4a)}
   .tile i{position:absolute;left:6px;bottom:6px;font:600 9px Inter;font-style:normal;text-transform:uppercase;letter-spacing:.05em;background:#fff;color:var(--ink);padding:3px 7px;border-radius:999px}
+  .tile{overflow:hidden}
+  .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .tile i{z-index:1;box-shadow:0 1px 4px rgba(17,9,16,.25)}
+  .tile .reel{position:absolute;top:6px;right:7px;z-index:1;color:#fff;font-size:11px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+  .tile.txt{background:var(--cream)!important;padding:10px;display:flex;flex-direction:column;gap:4px;color:var(--ink)}
+  .tile.txt .k{font:600 8px Inter;text-transform:uppercase;letter-spacing:.08em;opacity:.65}
+  .tile.txt strong{font:700 clamp(10px,1.15vw,14px)/1.15 Inter;letter-spacing:-.02em}
+  .tile.txt.dark{background:var(--ink)!important;color:var(--cream);justify-content:center}
+  .tile.txt .q{font:600 italic clamp(12px,1.35vw,17px)/1.15 "Cormorant Garamond",serif;letter-spacing:0}
   .bubble{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;display:flex;justify-content:space-between;gap:10px;align-items:center}
   .bubble em{font-style:normal;background:var(--ink);color:var(--cream);border-radius:999px;padding:6px 12px;font-weight:600;white-space:nowrap}
   .log{padding:6px 16px}
@@ -383,13 +392,19 @@
           <div class="app">
             <div class="top"><i></i><i></i><i></i><span data-lang="pt">Prévia do feed · novembro</span><span data-lang="en">Feed preview · November</span></div>
             <div class="feed">
-              <div class="prof"><div class="av">M</div><div><b data-lang="pt">@marcaexemplo</b><b data-lang="en">@samplebrand</b><span data-lang="pt">9 posts planejados</span><span data-lang="en">9 planned posts</span></div></div>
+              <div class="prof"><div class="av">C</div><div><b>@cafeexemplo</b><span data-lang="pt">9 posts planejados · novembro</span><span data-lang="en">9 planned posts · November</span></div></div>
               <div class="g9">
-                <div class="tile"><i data-lang="pt">aprovado</i><i data-lang="en">approved</i></div><div class="tile"><i data-lang="pt">aprovado</i><i data-lang="en">approved</i></div><div class="tile"><i data-lang="pt">ajuste</i><i data-lang="en">change</i></div>
-                <div class="tile"><i data-lang="pt">aguardando</i><i data-lang="en">pending</i></div><div class="tile"><i data-lang="pt">aprovado</i><i data-lang="en">approved</i></div><div class="tile"><i data-lang="pt">aguardando</i><i data-lang="en">pending</i></div>
-                <div class="tile"></div><div class="tile"></div><div class="tile"></div>
+                <div class="tile"><img src="images/feed/coado.jpg" alt="Café coado sendo preparado" loading="lazy" width="320" height="400"><b class="reel" aria-hidden="true">▶</b><i data-lang="pt">aprovado</i><i data-lang="en">approved</i></div>
+                <div class="tile txt"><span class="k" data-lang="pt">carrossel</span><span class="k" data-lang="en">carousel</span><strong data-lang="pt">3 jeitos de passar o café em casa</strong><strong data-lang="en">3 ways to brew coffee at home</strong><i data-lang="pt">aprovado</i><i data-lang="en">approved</i></div>
+                <div class="tile"><img src="images/feed/latte.jpg" alt="Latte com desenho na espuma" loading="lazy" width="320" height="400"><i data-lang="pt">ajuste</i><i data-lang="en">change</i></div>
+                <div class="tile"><img src="images/feed/cookies.jpg" alt="Cookies caseiros" loading="lazy" width="320" height="400"><i data-lang="pt">aguardando</i><i data-lang="en">pending</i></div>
+                <div class="tile"><img src="images/feed/iogurte.jpg" alt="Iogurte com morangos" loading="lazy" width="320" height="400"><b class="reel" aria-hidden="true">▶</b><i data-lang="pt">aprovado</i><i data-lang="en">approved</i></div>
+                <div class="tile txt dark"><strong class="q" data-lang="pt">"Café bom é café sem pressa."</strong><strong class="q" data-lang="en">"Good coffee is unhurried coffee."</strong><i data-lang="pt">aguardando</i><i data-lang="en">pending</i></div>
+                <div class="tile"><img src="images/feed/cha-limao.jpg" alt="Chá de gengibre e limão" loading="lazy" width="320" height="400"></div>
+                <div class="tile"><img src="images/feed/graos.jpg" alt="Grãos de café torrados" loading="lazy" width="320" height="400"></div>
+                <div class="tile"><img src="images/feed/cha.jpg" alt="Chá na prensa francesa" loading="lazy" width="320" height="400"></div>
               </div>
-              <div class="bubble"><span data-lang="pt">"Troca a frase do 3º slide?" · cliente</span><span data-lang="en">"Change slide 3's line?" · client</span><em data-lang="pt">Aprovar mês</em><em data-lang="en">Approve month</em></div>
+              <div class="bubble"><span data-lang="pt">"Dá pra clarear a foto do latte?" · cliente</span><span data-lang="en">"Can you brighten the latte photo?" · client</span><em data-lang="pt">Aprovar mês</em><em data-lang="en">Approve month</em></div>
             </div>
           </div>
         </div>
@@ -418,7 +433,7 @@
           </div>
         </div>
       </div>
-      <p class="note" data-lang="pt">Telas ilustrativas, com dados fictícios.</p><p class="note" data-lang="en">Illustrative screens with fictional data.</p>
+      <p class="note" data-lang="pt">Telas ilustrativas, com marca e dados fictícios. Fotos: Unsplash.</p><p class="note" data-lang="en">Illustrative screens with a fictional brand and data. Photos: Unsplash.</p>
     </div>
   </section>
 
