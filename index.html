@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#5b5b5b;--card:#545454;--line:#6b6b6b;--text:#ede8ad;--muted:rgba(237,232,173,.72);--ink:#110910}
+  :root{--bg:#545454;--card:#5b5b5b;--line:#6b6b6b;--text:#ede8ad;--muted:rgba(237,232,173,.72);--ink:#110910}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font:300 17px/1.65 "Josefin Sans",system-ui,sans-serif}
   .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
@@ -35,6 +35,16 @@
   .about{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:40px;align-items:center}
   .about img{width:100%;height:auto;border-radius:12px}
   @media (max-width:720px){.about{grid-template-columns:1fr}.brand img{height:52px}}
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+  .svc{border:1px solid var(--line);border-radius:12px;padding:18px}
+  .svc b{display:block;font:600 20px "Cormorant Garamond",serif;margin-bottom:4px}
+  .svc span{color:var(--muted);font-size:14px}
+  .steps{list-style:none;counter-reset:s;display:grid;gap:10px;margin-top:20px}
+  .steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;border-bottom:1px solid var(--line);padding:12px 0}
+  .steps li::before{content:counter(s,decimal-leading-zero);font:600 13px "Josefin Sans";letter-spacing:.15em;opacity:.8;padding-top:4px}
+  .steps b{font:600 20px "Cormorant Garamond",serif}
+  .steps span{display:block;color:var(--muted);font-size:15px}
+  .phase{font:600 12px "Josefin Sans";letter-spacing:.2em;text-transform:uppercase;margin-top:28px;opacity:.85}
   .status{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
   .pill{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--muted)}
   .pill.done{color:var(--ink);background:var(--text);border-color:var(--text)}
@@ -83,6 +93,38 @@
         <p data-lang="pt">A marca aprova pela prévia do feed. Depois disso, agentes agendam, publicam e ativam as automações.</p>
         <p data-lang="en">The brand approves through a feed preview. After that, agents schedule, publish and switch on automations.</p></div>
     </div>
+
+    <section class="block">
+      <h2 data-lang="pt">O que fazemos</h2><h2 data-lang="en">What we do</h2>
+      <div class="services">
+        <div class="svc"><b data-lang="pt">Estratégia</b><b data-lang="en">Strategy</b><span data-lang="pt">gestão e relacionamento com as clientes</span><span data-lang="en">client management and relationship</span></div>
+        <div class="svc"><b>Design</b><span data-lang="pt">artes e carrosséis</span><span data-lang="en">graphics and carousels</span></div>
+        <div class="svc"><b>Social media</b><span data-lang="pt">copys, calendário e agendamento</span><span data-lang="en">copy, calendar and scheduling</span></div>
+        <div class="svc"><b data-lang="pt">Edição de vídeo</b><b data-lang="en">Video editing</b><span data-lang="pt">reels e cortes</span><span data-lang="en">reels and cuts</span></div>
+        <div class="svc"><b data-lang="pt">Landing pages e produto</b><b data-lang="en">Landing pages and product</b><span data-lang="pt">páginas e produtos digitais</span><span data-lang="en">pages and digital products</span></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 data-lang="pt">Como trabalhamos</h2><h2 data-lang="en">How we work</h2>
+      <p data-lang="pt">Um processo único para todas as clientes. O Rize Studio está sendo construído para que os agentes façam a parte repetitiva de cada etapa e o time cuide das decisões.</p>
+      <p data-lang="en">One process for every client. Rize Studio is being built so agents do the repetitive part of each step and the team makes the decisions.</p>
+      <p class="phase" data-lang="pt">Início da parceria</p><p class="phase" data-lang="en">Getting started</p>
+      <ol class="steps">
+        <li><div><b data-lang="pt">Entrada da cliente</b><b data-lang="en">Client onboarding</b><span data-lang="pt">briefing, acessos às redes, pasta de materiais e onboarding, em até 3 dias.</span><span data-lang="en">briefing, social media access, materials folder and onboarding, within 3 days.</span></div></li>
+        <li><div><b data-lang="pt">Pesquisa e análise</b><b data-lang="en">Research and analysis</b><span data-lang="pt">propósito e tom de voz da marca, concorrentes, tendências do mercado, SWOT, persona e presença nas redes.</span><span data-lang="en">brand purpose and tone of voice, competitors, market trends, SWOT, persona and social presence.</span></div></li>
+        <li><div><b data-lang="pt">Estratégia de conteúdo</b><b data-lang="en">Content strategy</b><span data-lang="pt">estrutura da estratégia e linha editorial.</span><span data-lang="en">strategy structure and editorial line.</span></div></li>
+        <li><div><b data-lang="pt">Apresentação</b><b data-lang="en">Presentation</b><span data-lang="pt">reunião com a cliente, feedback e ajustes.</span><span data-lang="en">client meeting, feedback and adjustments.</span></div></li>
+      </ol>
+      <p class="phase" data-lang="pt">Todo mês</p><p class="phase" data-lang="en">Every month</p>
+      <ol class="steps">
+        <li><div><b data-lang="pt">Planejamento e criação</b><b data-lang="en">Planning and creation</b><span data-lang="pt">pauta e cronograma do mês seguinte, de acordo com a estratégia aprovada.</span><span data-lang="en">next month's plan and schedule, following the approved strategy.</span></div></li>
+        <li><div><b data-lang="pt">Design e edição de vídeo</b><b data-lang="en">Design and video editing</b><span data-lang="pt">artes e vídeos na identidade visual da marca.</span><span data-lang="en">graphics and videos in the brand's visual identity.</span></div></li>
+        <li><div><b data-lang="pt">Revisão e aprovação</b><b data-lang="en">Review and approval</b><span data-lang="pt">a cliente aprova antes de qualquer publicação.</span><span data-lang="en">the client approves before anything is published.</span></div></li>
+        <li><div><b data-lang="pt">Publicação</b><b data-lang="en">Publishing</b><span data-lang="pt">agendamento no calendário aprovado.</span><span data-lang="en">scheduling on the approved calendar.</span></div></li>
+        <li><div><b data-lang="pt">Métricas, gargalos e manutenção</b><b data-lang="en">Metrics, bottlenecks and upkeep</b><span data-lang="pt">resultados, prazos e comunicação revisados para melhorar o mês seguinte.</span><span data-lang="en">results, deadlines and communication reviewed to improve the next month.</span></div></li>
+      </ol>
+    </section>
 
     <section class="block">
       <h2 data-lang="pt">Serviço que funciona como software</h2>
